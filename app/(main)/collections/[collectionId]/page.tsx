@@ -1,20 +1,20 @@
 "use client";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList } from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
 import { Toggle } from "@/components/ui/toggle";
-import { colorOptions, discountOptions, filterCollections, sizeOptions } from "@/lib/constants";
+import { colorOptions, discountOptions, filterCollections, products, sizeOptions } from "@/lib/constants";
 import clsx from "clsx";
 import { LayoutGrid, ListFilter } from "lucide-react";
 import React, { useState } from "react";
+import ProductItem from "./_components/product-item";
 
 type Props = {
     params: {
-        collectionsId: string;
+        collectionId: string;
     };
 };
 
@@ -81,7 +81,7 @@ const Page = ({ params }: Props) => {
                 </div>
 
                 <div className="flex flex-row w-full">
-                    <div className="flex flex-col w-[260px]">
+                    <div className="flex flex-col w-[260px] max-w-[260px]">
                         <Accordion type="multiple" className="border-t" defaultValue={["price", "availability", "brand", "color", "size", "discount"]}>
                             <AccordionItem value="price">
                                 <AccordionTrigger className="hover:no-underline text-xs tracking-[.2rem]">Price, $</AccordionTrigger>
@@ -191,7 +191,11 @@ const Page = ({ params }: Props) => {
                             </AccordionItem>
                         </Accordion>
                     </div>
-                    <div></div>
+                    <div className="grid grid-cols-3 gap-4 w-full ml-10">
+                        {products.map((product) => (
+                            <ProductItem key={product.id} item={product} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
