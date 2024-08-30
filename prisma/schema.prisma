@@ -20,164 +20,353 @@ enum Role {
 }
 
 model User {
-    id           String         @id @default(uuid())
-    name         String
-    avatarUrl    String         @db.Text
-    email        String         @unique
-    passwordHash String?        @default("")
-    country      String?        @default("")
-    phone        String?        @default("")
-    address      String?        @default("")
-    isActive     Boolean        @default(false)
-    createdAt    DateTime       @default(now())
-    updatedAt    DateTime       @updatedAt
-    role         Role           @default(CUSTOMER)
-    Permissions  Permissions[]
-    Notification Notification[]
-    Orders       Order[]
-    Cart         Cart?
-    cartId       String?
-}
-
-model Permissions {
-    id     String  @id @default(uuid())
-    email  String
-    User   User    @relation(fields: [email], references: [email], onDelete: Cascade)
-    access Boolean
+    id            String          @id @default(uuid()) // e.g., "123e4567-e89b-12d3-a456-426614174000"
+    name          String // e.g., "John Doe"
+    avatarUrl     String?         @db.Text // e.g., "https://example.com/avatars/john-doe.jpg"
+    email         String          @unique // e.g., "user@example.com"
+    passwordHash  String // e.g., "hashed_password"
+    country       String? // e.g., "USA"
+    phone         String? // e.g., "+1234567890"
+    address       String? // e.g., "123 Main St, City, Country"
+    isActive      Boolean         @default(true) // e.g., true
+    createdAt     DateTime        @default(now())
+    updatedAt     DateTime        @updatedAt
+    role          Role            @default(CUSTOMER) // e.g., CUSTOMER, ADMIN, etc.
+    permissions   Permissions[]
+    notifications Notification[]
+    orders        Order[]
+    cart          Cart?
+    reviews       ProductReview[]
 
     @@index([email])
 }
 
+model Permissions {
+    id         String  @id @default(uuid()) // e.g., "789e0123-e45b-67d8-a901-234567890000"
+    user       User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId     String // e.g., "123e4567-e89b-12d3-a456-426614174000"
+    permission String // e.g., "CREATE_PRODUCT", "DELETE_USER", "VIEW_ORDERS", "MANAGE_INVENTORY"
+    granted    Boolean @default(false) // e.g., true or false
+
+    @@unique([userId, permission])
+    @@index([userId])
+}
+
 model Notification {
-    id           String @id @default(uuid())
-    notification String
-
-    read Boolean? @default(false)
-
-    User      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-    userId    String
-    Product   Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
-    productId String?
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    id           String   @id @default(uuid()) // e.g., "not1234-56cd-78ef-90gh-123456789012"
+    notification String // e.g., "New order received"
+    read         Boolean  @default(false) // e.g., false
+    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId       String // e.g., "user123-456-789"
+    product      Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+    productId    String? // e.g., "prod123-456-789"
+    createdAt    DateTime @default(now())
+    updatedAt    DateTime @updatedAt
 
     @@index([userId])
     @@index([productId])
 }
 
-model Collection {
-    id          String    @id @default(uuid())
-    name        String
-    description String?
-    Products    Product[] @relation("CollectionProducts")
-}
-
 model Product {
-    id              String           @id @default(uuid())
-    name            String
-    description     String
-    price           Float
-    ProductImages   ProductImage[]
-    ProductVariants ProductVariant[]
-    Collections     Collection[]     @relation("CollectionProducts")
-    OrderItem       OrderItem[]
-    CartItem        CartItem[]
-    Notification    Notification[]
+    id                String             @id @default(uuid()) // e.g., "123e4567-e89b-12d3-a456-426614174000"
+    name              String // e.g., "Classic Cotton T-Shirt"
+    description       String             @db.Text // e.g., "Comfortable, breathable cotton t-shirt perfect for everyday wear."
+    sku               String             @unique // e.g., "CCTS-001-BLK-M"
+    barcode           String?            @unique // e.g., "9876543210123"
+    price             Decimal            @db.Decimal(10, 2) // e.g., 29.99
+    compareAtPrice    Decimal?           @db.Decimal(10, 2) // e.g., 39.99
+    costPrice         Decimal?           @db.Decimal(10, 2) // e.g., 15.00
+    taxable           Boolean            @default(true) // e.g., true
+    status            ProductStatus      @default(ACTIVE) // e.g., ACTIVE
+    visibility        ProductVisibility  @default(VISIBLE) // e.g., VISIBLE
+    type              String? // e.g., "T-Shirt"
+    vendor            String? // e.g., "FashionBrand"
+    brand             String? // e.g., "ComfortWear"
+    weight            Float? // e.g., 0.2 (in kg)
+    weightUnit        WeightUnit? // e.g., KG
+    stock             Int                @default(0) // e.g., 100
+    lowStockThreshold Int?               @default(5) // e.g., 10
+    backorder         Boolean            @default(false) // e.g., false
+    requiresShipping  Boolean            @default(true) // e.g., true
+    metadata          Json? // e.g., {"material": "100% cotton", "care": "Machine wash cold"}
+    slug              String             @unique // e.g., "classic-cotton-t-shirt"
+    seoTitle          String? // e.g., "Classic Cotton T-Shirt | ComfortWear"
+    seoDescription    String?            @db.Text // e.g., "Shop our comfortable, breathable cotton t-shirt. Perfect for everyday wear."
+    rating            Float?             @default(0) // e.g., 4.5
+    reviewCount       Int                @default(0) // e.g., 23
+    featuredImageId   String? // e.g., "789e0123-e45b-67d8-a901-234567890000"
+    createdAt         DateTime           @default(now())
+    updatedAt         DateTime           @updatedAt
+    inventory         ProductInventory[]
+    category          Category?          @relation(fields: [categoryId], references: [id])
+    categoryId        String? // e.g., "abcd1234-e56f-78g9-h012-345678901234"
+    collections       Collection[]       @relation("CollectionProducts")
+    tags              Tag[]              @relation("ProductTags")
+    images            ProductImage[]
+    variants          ProductVariant[]
+    attributes        ProductAttribute[]
+    reviews           ProductReview[]
+    orderItems        OrderItem[]
+    cartItems         CartItem[]
+    notifications     Notification[]
+    suppliers         Supplier[]         @relation("ProductSuppliers")
+    discounts         Discount[]         @relation("ProductDiscounts")
+    bundles           Bundle[]           @relation("BundleProducts")
+    relatedProducts   Product[]          @relation("RelatedProducts")
+    relatedToProducts Product[]          @relation("RelatedProducts")
+    customFields      CustomField[]
 
-    Category   Category? @relation(fields: [categoryId], references: [id])
-    categoryId String?
-
+    @@index([sku])
     @@index([categoryId])
-}
-
-model Category {
-    id          String    @id @default(uuid())
-    name        String
-    description String?
-    Products    Product[]
-}
-
-model ProductImage {
-    id        String  @id @default(uuid())
-    imageUrl  String
-    Product   Product @relation(fields: [productId], references: [id])
-    productId String
-
-    @@index([productId])
+    @@index([status])
+    @@index([visibility])
+    @@index([vendor])
+    @@index([brand])
 }
 
 model ProductVariant {
-    id        String  @id @default(uuid())
-    Product   Product @relation(fields: [productId], references: [id])
-    productId String
-    Size      Size    @relation(fields: [sizeId], references: [id])
-    sizeId    String
-    Color     Color   @relation(fields: [colorId], references: [id])
-    colorId   String
+    id             String      @id @default(uuid()) // e.g., "efgh5678-i90j-12k3-l456-789012345678"
+    sku            String      @unique // e.g., "CCTS-001-BLK-M"
+    barcode        String?     @unique // e.g., "9876543210124"
+    price          Decimal     @db.Decimal(10, 2) // e.g., 29.99
+    compareAtPrice Decimal?    @db.Decimal(10, 2) // e.g., 39.99
+    stock          Int         @default(0) // e.g., 50
+    weight         Float? // e.g., 0.2 (in kg)
+    weightUnit     WeightUnit? // e.g., KG
+    product        Product     @relation(fields: [productId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+    productId      String // e.g., "123e4567-e89b-12d3-a456-426614174000"
+    size           Size?       @relation(fields: [sizeId], references: [id])
+    sizeId         String? // e.g., "size123-456-789"
+    color          Color?      @relation(fields: [colorId], references: [id])
+    colorId        String? // e.g., "color123-456-789"
 
     @@index([productId])
     @@index([sizeId])
     @@index([colorId])
 }
 
+model ProductAttribute {
+    id        String  @id @default(uuid()) // e.g., "attr1234-56cd-78ef-90gh-123456789012"
+    name      String // e.g., "Material"
+    value     String // e.g., "100% Cotton"
+    product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+    productId String // e.g., "123e4567-e89b-12d3-a456-426614174000"
+
+    @@index([productId])
+}
+
+model ProductImage {
+    id        String  @id @default(uuid()) // e.g., "img1234-56cd-78ef-90gh-123456789012"
+    url       String // e.g., "https://example.com/images/classic-tshirt-black.jpg"
+    altText   String? // e.g., "Classic Cotton T-Shirt in Black"
+    position  Int     @default(0) // e.g., 1
+    product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+    productId String // e.g., "123e4567-e89b-12d3-a456-426614174000"
+
+    @@index([productId])
+}
+
+model ProductReview {
+    id        String   @id @default(uuid()) // e.g., "rev1234-56cd-78ef-90gh-123456789012"
+    rating    Int // e.g., 5
+    comment   String?  @db.Text // e.g., "Great t-shirt! Very comfortable and fits well."
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId    String // e.g., "user123-456-789"
+    product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+    productId String // e.g., "123e4567-e89b-12d3-a456-426614174000"
+    createdAt DateTime @default(now())
+
+    @@index([userId])
+    @@index([productId])
+}
+
+model Category {
+    id            String     @id @default(uuid()) // e.g., "cat1234-56cd-78ef-90gh-123456789012"
+    name          String // e.g., "T-Shirts"
+    description   String? // e.g., "Comfortable and stylish t-shirts for all occasions"
+    slug          String     @unique // e.g., "t-shirts"
+    parentId      String? // e.g., "parentcat-123-456"
+    parent        Category?  @relation("SubCategories", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+    subCategories Category[] @relation("SubCategories")
+    products      Product[]
+
+    @@index([parentId])
+}
+
+model Collection {
+    id          String    @id @default(uuid()) // e.g., "col1234-56cd-78ef-90gh-123456789012"
+    name        String // e.g., "Summer Essentials"
+    description String? // e.g., "Must-have clothing items for the summer season"
+    slug        String    @unique // e.g., "summer-essentials"
+    isActive    Boolean   @default(true) // e.g., true
+    products    Product[] @relation("CollectionProducts")
+}
+
+model Tag {
+    id       String    @id @default(uuid()) // e.g., "tag1234-56cd-78ef-90gh-123456789012"
+    name     String    @unique // e.g., "Casual"
+    products Product[] @relation("ProductTags")
+}
+
+model Supplier {
+    id       String    @id @default(uuid()) // e.g., "sup1234-56cd-78ef-90gh-123456789012"
+    name     String // e.g., "FashionBrand"
+    email    String? // e.g., "supplier@example.com"
+    phone    String? // e.g., "+1234567890"
+    address  String? // e.g., "123 Supplier St, Supplier City, 12345"
+    products Product[] @relation("ProductSuppliers")
+}
+
+model Discount {
+    id          String       @id @default(uuid()) // e.g., "disc1234-56cd-78ef-90gh-123456789012"
+    code        String       @unique // e.g., "SUMMER20"
+    description String? // e.g., "20% off on all summer clothing"
+    type        DiscountType // e.g., PERCENTAGE
+    value       Decimal      @db.Decimal(10, 2) // e.g., 20.00
+    startDate   DateTime // e.g., 2022-06-01T00:00:00Z
+    endDate     DateTime? // e.g., 2022-08-31T23:59:59Z
+    isActive    Boolean      @default(true) // e.g., true
+    products    Product[]    @relation("ProductDiscounts")
+}
+
+model Bundle {
+    id          String    @id @default(uuid()) // e.g., "bund1234-56cd-78ef-90gh-123456789012"
+    name        String // e.g., "Summer Bundle"
+    description String? // e.g., "Get 3 t-shirts for the price of 2"
+    price       Decimal   @db.Decimal(10, 2) // e.g., 59.97
+    products    Product[] @relation("BundleProducts")
+}
+
+model CustomField {
+    id        String          @id @default(uuid()) // e.g., "cust1234-56cd-78ef-90gh-123456789012"
+    name      String // e.g., "Size Chart"
+    type      CustomFieldType // e.g., TEXT
+    value     String // e.g., "https://example.com/size-chart.pdf"
+    product   Product         @relation(fields: [productId], references: [id], onDelete: Cascade)
+    productId String // e.g., "123e4567-e89b-12d3-a456-426614174000"
+
+    @@index([productId])
+}
+
 model Size {
-    id              String           @id @default(uuid())
-    name            String
-    ProductVariants ProductVariant[]
+    id              String           @id @default(uuid()) // e.g., "size123-456-789"
+    name            String // e.g., "Medium"
+    code            String           @unique // e.g., "M"
+    productVariants ProductVariant[]
 }
 
 model Color {
-    id             String           @id @default(uuid())
-    name           String
-    ProductVariant ProductVariant[]
+    id              String           @id @default(uuid()) // e.g., "color123-456-789"
+    name            String // e.g., "Black"
+    hexCode         String // e.g., "#000000"
+    productVariants ProductVariant[]
+}
+
+model ProductInventory {
+    id          String    @id @default(uuid()) // e.g., "inv1234-56cd-78ef-90gh-123456789012"
+    product     Product   @relation(fields: [productId], references: [id])
+    productId   String // e.g., "123e4567-e89b-12d3-a456-426614174000"
+    warehouse   Warehouse @relation(fields: [warehouseId], references: [id])
+    warehouseId String // e.g., "wh1234-56cd-78ef-90gh-123456789012"
+    quantity    Int // e.g., 100
+    lastUpdated DateTime  @updatedAt
+
+    @@unique([productId, warehouseId])
+    @@index([productId])
+    @@index([warehouseId])
+}
+
+model Warehouse {
+    id        String             @id @default(uuid()) // e.g., "wh1234-56cd-78ef-90gh-123456789012"
+    name      String // e.g., "Main Warehouse"
+    address   String // e.g., "123 Storage St, Warehouse City, 12345"
+    inventory ProductInventory[]
 }
 
 model Order {
-    id          String      @id @default(uuid())
+    id          String      @id @default(uuid()) // e.g., "ord1234-56cd-78ef-90gh-123456789012"
     user        User        @relation(fields: [userId], references: [id])
-    userId      String
+    userId      String // e.g., "user123-456-789"
+    status      OrderStatus @default(PENDING) // e.g., PENDING
+    totalAmount Decimal     @db.Decimal(10, 2) // e.g., 99.99
+    items       OrderItem[]
     createdAt   DateTime    @default(now())
     updatedAt   DateTime    @updatedAt
-    totalAmount Float
-    status      String
-    OrderItems  OrderItem[]
 
     @@index([userId])
 }
 
 model OrderItem {
-    id        String  @id @default(uuid())
+    id        String  @id @default(uuid()) // e.g., "orditem1234-56cd-78ef-90gh-123456789012"
     order     Order   @relation(fields: [orderId], references: [id])
-    orderId   String
-    Product   Product @relation(fields: [productId], references: [id])
-    productId String
-    quantity  Int
-    price     Float
+    orderId   String // e.g., "ord1234-56cd-78ef-90gh-123456789012"
+    product   Product @relation(fields: [productId], references: [id])
+    productId String // e.g., "123e4567-e89b-12d3-a456-426614174000"
+    quantity  Int // e.g., 2
+    price     Decimal @db.Decimal(10, 2) // e.g., 49.99
 
-    @@index([productId])
     @@index([orderId])
+    @@index([productId])
 }
 
 model Cart {
-    id        String     @id @default(uuid())
+    id        String     @id @default(uuid()) // e.g., "cart1234-56cd-78ef-90gh-123456789012"
     user      User       @relation(fields: [userId], references: [id])
-    userId    String     @unique
+    userId    String     @unique // e.g., "user123-456-789"
+    items     CartItem[]
     createdAt DateTime   @default(now())
     updatedAt DateTime   @updatedAt
-    CartItems CartItem[]
 
     @@index([userId])
 }
 
 model CartItem {
-    id        String  @id @default(uuid())
-    Cart      Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade)
-    cartId    String
-    Product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
-    productId String
-    quantity  Int
-    price     Float
+    id        String  @id @default(uuid()) // e.g., "cartitem1234-56cd-78ef-90gh-123456789012"
+    cart      Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade)
+    cartId    String // e.g., "cart1234-56cd-78ef-90gh-123456789012"
+    product   Product @relation(fields: [productId], references: [id])
+    productId String // e.g., "123e4567-e89b-12d3-a456-426614174000"
+    quantity  Int // e.g., 1
+    price     Decimal @db.Decimal(10, 2) // e.g., 29.99
 
     @@index([cartId])
     @@index([productId])
+}
+
+enum ProductStatus {
+    DRAFT // Product is not ready for sale
+    ACTIVE // Product is available for sale
+    ARCHIVED // Product is no longer for sale but kept for record
+}
+
+enum ProductVisibility {
+    VISIBLE // Product is visible in the store
+    HIDDEN // Product is hidden from customers
+}
+
+enum WeightUnit {
+    G // Grams
+    KG // Kilograms
+    LB // Pounds
+    OZ // Ounces
+}
+
+enum DiscountType {
+    PERCENTAGE
+    FIXED_AMOUNT
+}
+
+enum CustomFieldType {
+    TEXT
+    NUMBER
+    DATE
+    BOOLEAN
+}
+
+enum OrderStatus {
+    PENDING
+    PROCESSING
+    SHIPPED
+    DELIVERED
+    CANCELLED
 }
