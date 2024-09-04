@@ -10,7 +10,7 @@ import { colorOptions, discountOptions, filterCollections, products, sizeOptions
 import clsx from "clsx";
 import { LayoutGrid, ListFilter } from "lucide-react";
 import React, { useState } from "react";
-import ProductItem from "./_components/product-item";
+import CollectionItem from "./_components/collection-item";
 
 type Props = {
     params: {
@@ -38,18 +38,18 @@ const Page = ({ params }: Props) => {
                 </BreadcrumbList>
             </Breadcrumb>
 
-            <h1 className="tracking-[.3rem]">{params.collectionsId}</h1>
+            <h1 className="tracking-[.3rem]">{params.collectionId}</h1>
 
             <div className="w-full h-full flex flex-col mt-[45px]">
                 <div className="w-full tex-center flex items-center justify-center mt-[15px] mb-[60px]">
-                    <span className="text-[26px]  tracking-[.2rem] font-medium capitalize">{params.collectionsId}</span>
+                    <span className="text-[26px]  tracking-[.2rem] font-medium capitalize">{params.collectionId}</span>
                 </div>
 
                 <div className="flex items-center justify-between w-full pt-3 mb-[35px]">
                     <div className="flex-1">
                         <span className="inline-flex items-center tracking-[.1rem] text-xs h-[34px] text-muted-foreground whitespace-pre-wrap">
                             Showing {collectionsTotal} results for
-                            <p className="tracking-[.2rem]"> {`"${params.collectionsId}"`}</p>
+                            <p className="tracking-[.2rem]"> {`"${params.collectionId}"`}</p>
                         </span>
                     </div>
 
@@ -193,7 +193,7 @@ const Page = ({ params }: Props) => {
                     </div>
                     <div className="grid grid-cols-3 gap-4 w-full ml-10">
                         {products.map((product) => (
-                            <ProductItem key={product.id} item={product} />
+                            <CollectionItem key={product.id} collectionId={params.collectionId} item={product} />
                         ))}
                     </div>
                 </div>

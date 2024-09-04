@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import React from "react";
 
 type Props = {
@@ -6,8 +7,8 @@ type Props = {
     };
 };
 
-const Page = () => {
-    return <div>Products</div>;
+const Page = ({ params }: Props) => {
+    return redirect(`/collections/${params.collectionId}`);
 };
 
 export default Page;

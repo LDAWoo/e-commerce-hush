@@ -239,3 +239,5 @@ export const products: ProductType[] = [
     { id: 34, name: "Wrap Dress", description: "Flattering wrap dress", price: 59.99, category: "Dresses", images: ["https://picsum.photos/seed/wrapdress1/400/300", "https://picsum.photos/seed/wrapdress2/400/300"], rating: 4.5, stock: 70, size: ["XS", "S", "M", "L"], color: ["Black", "Red", "Blue"] },
     { id: 35, name: "Pleated Skirt", description: "Elegant pleated skirt", price: 49.99, category: "Bottoms", images: ["https://picsum.photos/seed/pleatedskirt1/400/300", "https://picsum.photos/seed/pleatedskirt2/400/300"], rating: 4.4, stock: 60, size: ["XS", "S", "M", "L"], color: ["Black", "Navy", "Burgundy"] },
 ];
+
+export const productDetails = { id: 8, name: "Maxi Skirt", description: "Flowing maxi skirt", price: 44.99, category: "Bottoms", images: ["https://picsum.photos/seed/maxiskirt1/400/300", "https://picsum.photos/seed/maxiskirt2/400/300"], rating: 4.3, stock: 50, sizes: ["XS", "S", "M", "L"], colors: ["Black", "Floral"] };

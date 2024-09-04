@@ -29,6 +29,8 @@
         --chart-3: 197 37% 24%;
         --chart-4: 43 74% 66%;
         --chart-5: 27 87% 67%;
+
+        --rating-review: 44, 97%, 49%;
     }
 
     .dark {
@@ -95,9 +97,10 @@
     overflow: scroll;
 }
 
-body {
-    letter-spacing: 0.025em !important;
-    font-family: Futura, sans-serif !important;
+body,
+* {
+    letter-spacing: 0.025em;
+    font-family: Futura, sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;

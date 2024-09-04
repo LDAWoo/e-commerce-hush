@@ -11,12 +11,27 @@ const Accordion = AccordionPrimitive.Root;
 const AccordionItem = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Item>, React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>>(({ className, ...props }, ref) => <AccordionPrimitive.Item ref={ref} className={cn("border-b", className)} {...props} />);
 AccordionItem.displayName = "AccordionItem";
 
-const AccordionTrigger = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Trigger>, React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>>(({ className, children, ...props }, ref) => (
+interface CustomAccordionTriggerProps {
+    arrow?: boolean;
+}
+
+interface AccordionTriggerProps extends React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>, CustomAccordionTriggerProps {}
+
+const AccordionTrigger = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Trigger>, AccordionTriggerProps>(({ className, children, arrow = false, ...props }, ref) => (
     <AccordionPrimitive.Header className="flex">
-        <AccordionPrimitive.Trigger ref={ref} className={cn("[&[data-state=open]>#plus]:hidden [&[data-state=closed]>#plus]:block [&[data-state=closed]>#minus]:hidden [&[data-state=open]>#minus]:block flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline ", className)} {...props}>
+        <AccordionPrimitive.Trigger ref={ref} className={cn("[&[data-state=open]>#arrow]:rotate-180 [&[data-state=open]>#plus]:hidden [&[data-state=closed]>#plus]:block [&[data-state=closed]>#minus]:hidden [&[data-state=open]>#minus]:block flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline ", className)} {...props}>
             {children}
-            <Plus id="plus" className="h-5 w-5 shrink-0 transition-transform duration-200 " />
-            <Minus id="minus" className="h-5 w-5 shrink-0 transition-transform duration-200 " />
+            {!arrow && (
+                <>
+                    <Plus id="plus" className="h-5 w-5 shrink-0 transition-transform duration-200 " />
+                    <Minus id="minus" className="h-5 w-5 shrink-0 transition-transform duration-200 " />
+                </>
+            )}
+            {arrow && (
+                <>
+                    <ChevronDown id="arrow" className="h-5 w-5 shrink-0 transition-transform duration-200" />
+                </>
+            )}
         </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
 ));

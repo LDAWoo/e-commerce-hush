@@ -14,6 +14,7 @@ const config = {
         },
         extend: {
             colors: {
+                rating: "hsl(var(--rating-review))",
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",
@@ -52,6 +53,13 @@ const config = {
                 lg: "var(--radius)",
                 md: "calc(var(--radius) - 2px)",
                 sm: "calc(var(--radius) - 4px)",
+            },
+            boxShadow: {
+                "shadow-border-xs": "0 0 0 1px hsl(var(--input))",
+                "shadow-border-sm": "0 0 0 2px hsl(var(--primary))",
+            },
+            backgroundImage: {
+                "shine-gradient": "linear-gradient(to right, transparent, var(--tw-gradient-stops), transparent)",
             },
             keyframes: {
                 "accordion-down": {
@@ -128,10 +136,16 @@ const config = {
                         opacity: "1",
                     },
                 },
+                shine: {
+                    to: {
+                        left: "-200%",
+                    },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
+                shine: "shine .75s cubic-bezier(.01,.56, 1, 1)",
                 "effect-cube": "effect-cube 1.2s infinite linear",
                 "slide-down": "slide-down 0.5s ease forwards",
                 "slide-up": "slide-up 0.5s ease forwards",
