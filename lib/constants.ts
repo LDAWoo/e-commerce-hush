@@ -1,36 +1,42 @@
+import { Color, Size } from "@prisma/client";
 import { Box, Info, LayoutGrid, LayoutList, LogOut, Settings, UserRound } from "lucide-react";
 
 export type DashBoardSideBarProps = {
     name: string;
     icon: string;
-    link: string;
+    link?: string;
+    subItems?: { name: string; link: string }[];
 };
 
 export const DashBoardSideBar: DashBoardSideBarProps[] = [
     {
-        name: "Home Page",
+        name: "Page manager",
         icon: "homepage",
         link: "/dashboard",
     },
     {
-        name: "User",
-        icon: "user",
-        link: "/dashboard/users",
-    },
-    {
-        name: "Product",
+        name: "Store",
         icon: "product",
-        link: "/dashboard/products",
+        subItems: [
+            { name: "Products", link: "/dashboard/products" },
+            { name: "Collections", link: "/dashboard/collections" },
+            { name: "Order", link: "/dashboard/orders" },
+        ],
     },
     {
-        name: "Collections",
+        name: "Business analytics",
         icon: "collections",
-        link: "/dashboard/collections",
+        link: "/dashboard/analytics",
     },
     {
-        name: "Help",
+        name: "Promotion",
         icon: "help",
-        link: "/dashboard/help",
+        link: "/dashboard/promotion",
+    },
+    {
+        name: "Message",
+        icon: "user",
+        link: "/dashboard/messages",
     },
     {
         name: "Settings",
@@ -158,29 +164,29 @@ export const filterCollections = [
     { value: "relevance", label: "Relevance" },
 ];
 
-export const colorOptions = [
-    { id: "black", label: "Black", hex: "#000000", count: 12 },
-    { id: "white", label: "White", hex: "#FFFFFF", count: 10 },
-    { id: "red", label: "Red", hex: "#FF0000", count: 8 },
-    { id: "blue", label: "Blue", hex: "#0000FF", count: 7 },
-    { id: "green", label: "Green", hex: "#00FF00", count: 6 },
-    { id: "yellow", label: "Yellow", hex: "#FFFF00", count: 5 },
-    { id: "purple", label: "Purple", hex: "#800080", count: 4 },
-    { id: "pink", label: "Pink", hex: "#FFC0CB", count: 3 },
-    { id: "orange", label: "Orange", hex: "#FFA500", count: 2 },
-    { id: "gray", label: "Gray", hex: "#808080", count: 1 },
+export const colorOptions: Color[] = [
+    { id: "black", name: "Black", hexCode: "#000000", count: 12 },
+    { id: "white", name: "White", hexCode: "#FFFFFF", count: 10 },
+    { id: "red", name: "Red", hexCode: "#FF0000", count: 8 },
+    { id: "blue", name: "Blue", hexCode: "#0000FF", count: 7 },
+    { id: "green", name: "Green", hexCode: "#00FF00", count: 6 },
+    { id: "yellow", name: "Yellow", hexCode: "#FFFF00", count: 5 },
+    { id: "purple", name: "Purple", hexCode: "#800080", count: 4 },
+    { id: "pink", name: "Pink", hexCode: "#FFC0CB", count: 3 },
+    { id: "orange", name: "Orange", hexCode: "#FFA500", count: 2 },
+    { id: "gray", name: "Gray", hexCode: "#808080", count: 1 },
 ];
 
-export const sizeOptions = [
-    { id: "xs", label: "XS", count: 1 },
-    { id: "s", label: "S", count: 2 },
-    { id: "m", label: "M", count: 6 },
-    { id: "l", label: "L", count: 5 },
-    { id: "xl", label: "XL", count: 2 },
-    { id: "xxl", label: "2XL", count: 3 },
-    { id: "xxxl", label: "3XL", count: 10 },
-    { id: "xxxxl", label: "4XL", count: 11 },
-    { id: "xxxxxl", label: "5XL", count: 1 },
+export const sizeOptions: Size[] = [
+    { id: "1", code: "xs", name: "XS", count: 1 },
+    { id: "2", code: "s", name: "S", count: 2 },
+    { id: "3", code: "m", name: "M", count: 6 },
+    { id: "4", code: "l", name: "L", count: 5 },
+    { id: "5", code: "xl", name: "XL", count: 2 },
+    { id: "6", code: "xxl", name: "2XL", count: 3 },
+    { id: "7", code: "xxxl", name: "3XL", count: 10 },
+    { id: "8", code: "xxxxl", name: "4XL", count: 11 },
+    { id: "9", code: "xxxxxl", name: "5XL", count: 1 },
 ];
 
 export const discountOptions = [
@@ -239,3 +245,5 @@ export const products: ProductType[] = [
     { id: 34, name: "Wrap Dress", description: "Flattering wrap dress", price: 59.99, category: "Dresses", images: ["https://picsum.photos/seed/wrapdress1/400/300", "https://picsum.photos/seed/wrapdress2/400/300"], rating: 4.5, stock: 70, size: ["XS", "S", "M", "L"], color: ["Black", "Red", "Blue"] },
     { id: 35, name: "Pleated Skirt", description: "Elegant pleated skirt", price: 49.99, category: "Bottoms", images: ["https://picsum.photos/seed/pleatedskirt1/400/300", "https://picsum.photos/seed/pleatedskirt2/400/300"], rating: 4.4, stock: 60, size: ["XS", "S", "M", "L"], color: ["Black", "Navy", "Burgundy"] },
 ];
+
+export const productDetails = { id: 8, name: "Maxi Skirt", description: "Flowing maxi skirt", price: 44.99, category: "Bottoms", images: ["https://picsum.photos/seed/maxiskirt1/400/300", "https://picsum.photos/seed/maxiskirt2/400/300"], rating: 4.3, stock: 50, sizes: ["XS", "S", "M", "L"], colors: ["Black", "Floral"] };

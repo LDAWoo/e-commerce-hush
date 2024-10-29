@@ -30,7 +30,7 @@ const Sidebar = () => {
             <div className="flex-1 overflow-y-auto">
                 <div className="flex flex-col space-y-2 p-4">
                     {data.map((item) => (
-                        <SidebarItem key={item.link} name={item.name} link={item.link} icon={item.icon} isOpen={isOpen} />
+                        <SidebarItem key={item.link} name={item.name} subItems={item.subItems} link={item.link} icon={item.icon} isOpen={isOpen} />
                     ))}
                 </div>
             </div>

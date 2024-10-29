@@ -29,6 +29,8 @@
         --chart-3: 197 37% 24%;
         --chart-4: 43 74% 66%;
         --chart-5: 27 87% 67%;
+
+        --rating-review: 44, 97%, 49%;
     }
 
     .dark {
@@ -95,28 +97,10 @@
     overflow: scroll;
 }
 
-body {
-    letter-spacing: 0.025em !important;
-    font-family: Futura, sans-serif !important;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-size-adjust: 100%;
-    text-rendering: optimizeSpeed;
-}
-
 .hero-media iframe {
     position: absolute;
     top: 0;
     left: -100%;
     width: 300%;
     height: 100%;
-}
-
-h1 {
-    font-family: Tiemann, serif;
-    font-weight: 400;
-    letter-spacing: 0em;
-    line-height: 1;
-    text-transform: uppercase;
-    font-size: 2.375em;
 }

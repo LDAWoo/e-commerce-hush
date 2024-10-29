@@ -4,16 +4,16 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 type Props = {
-    collectionsId?: string;
+    collectionId?: string;
     item: ProductType;
 };
 
-const ProductItem = ({ collectionsId, item }: Props) => {
+const CollectionItem = ({ collectionId, item }: Props) => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
         <div className="relative aspect-[1/0.7] animate-fade-in" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-            <Link href={`/collections/${collectionsId}/products/${item.name}`} className="">
+            <Link href={`/collections/${collectionId}/products/${item.name}`} className="">
                 <div className="relative w-full h-full">
                     <Image src={item.images[0]} fill alt={item.name} className={`w-full h-full object-cover transition-opacity duration-700 ease-in-out ${isHovered ? "opacity-0" : "opacity-100"}`} />
                     <Image src={item.images[1]} fill alt={item.name} className={`w-full h-full object-cover transition-opacity duration-700 ease-in-out ${isHovered ? "opacity-100" : "opacity-0"}`} />
@@ -42,4 +42,4 @@ const ProductItem = ({ collectionsId, item }: Props) => {
     );
 };
 
-export default ProductItem;
+export default CollectionItem;

@@ -10,7 +10,7 @@ import { colorOptions, discountOptions, filterCollections, products, sizeOptions
 import clsx from "clsx";
 import { LayoutGrid, ListFilter } from "lucide-react";
 import React, { useState } from "react";
-import ProductItem from "./_components/product-item";
+import CollectionItem from "./_components/collection-item";
 
 type Props = {
     params: {
@@ -38,18 +38,18 @@ const Page = ({ params }: Props) => {
                 </BreadcrumbList>
             </Breadcrumb>
 
-            <h1 className="tracking-[.3rem]">{params.collectionsId}</h1>
+            <h1 className="tracking-[.3rem]">{params.collectionId}</h1>
 
             <div className="w-full h-full flex flex-col mt-[45px]">
                 <div className="w-full tex-center flex items-center justify-center mt-[15px] mb-[60px]">
-                    <span className="text-[26px]  tracking-[.2rem] font-medium capitalize">{params.collectionsId}</span>
+                    <span className="text-[26px]  tracking-[.2rem] font-medium capitalize">{params.collectionId}</span>
                 </div>
 
                 <div className="flex items-center justify-between w-full pt-3 mb-[35px]">
                     <div className="flex-1">
                         <span className="inline-flex items-center tracking-[.1rem] text-xs h-[34px] text-muted-foreground whitespace-pre-wrap">
                             Showing {collectionsTotal} results for
-                            <p className="tracking-[.2rem]"> {`"${params.collectionsId}"`}</p>
+                            <p className="tracking-[.2rem]"> {`"${params.collectionId}"`}</p>
                         </span>
                     </div>
 
@@ -88,9 +88,9 @@ const Page = ({ params }: Props) => {
                                 <AccordionContent>
                                     <div className="flex flex-col pb-[30px]">
                                         <div className="flex gap-2 items-center">
-                                            <Input value={priceRange[0]} onChange={(e) => setPriceRange([Math.min(Number(e.target.value), priceRange[1])])} placeholder="Min" className="tracking-[.1rem] text-[10px] italic placeholder:text-[10px] placeholder:opacity-50 border-accent-foreground p-[5px_8px] focus-visible:ring-offset-0 focus-visible:ring-0 outline-none rounded-none h-[29px]" />
+                                            <Input value={priceRange[0]} onChange={(e) => setPriceRange([Math.min(Number(e.target.value), priceRange[1])])} placeholder="Min" className="tracking-[.1rem] text-[10px] italic placeholder:text-[10px] placeholder:opacity-50 border-accent-foreground p-[5px_8px] focus-visible:ring-offset-0 focus-visible:ring-0 focus-visible:shadow-none outline-none rounded-none h-[29px]" />
                                             <span>–</span>
-                                            <Input value={priceRange[1]} onChange={(e) => setPriceRange([priceRange[0], Math.max(Number(e.target.value))])} placeholder="Max" className="tracking-[.1rem] text-[10px] italic placeholder:text-[10px] placeholder:opacity-50 border-accent-foreground p-[5px_8px] focus-visible:ring-offset-0 focus-visible:ring-0 outline-none rounded-none h-[29px]" />
+                                            <Input value={priceRange[1]} onChange={(e) => setPriceRange([priceRange[0], Math.max(Number(e.target.value))])} placeholder="Max" className="tracking-[.1rem] text-[10px] italic placeholder:text-[10px] placeholder:opacity-50 border-accent-foreground p-[5px_8px] focus-visible:ring-offset-0 focus-visible:ring-0 focus-visible:shadow-none outline-none rounded-none h-[29px]" />
                                         </div>
 
                                         <div className="mt-6 w-full">
@@ -141,14 +141,14 @@ const Page = ({ params }: Props) => {
                                 <AccordionContent>
                                     <div className="block mb-[46px]">
                                         {colorOptions.map((color) => (
-                                            <div key={color.hex} className="w-[22px] h-[22px] m-[5px_8px_4px_4px] inline-block">
+                                            <div key={color.hexCode} className="w-[22px] h-[22px] m-[5px_8px_4px_4px] inline-block">
                                                 <div className="relative w-full h-full inline-block">
                                                     <input type="checkbox" value={color.id} checked={colors.includes(color.id)} className="hidden" />
                                                     <span
                                                         onClick={() => setColors((prev) => (prev.includes(color.id) ? prev.filter((c) => c !== color.id) : [...prev, color.id]))}
                                                         className={clsx("cursor-pointer relative inline-block w-[22px] h-[22px] rounded-full before:absolute before:border before:w-[26px] before:h-[26px] before:rounded-full before:-left-[2px] before:-top-[2px]", colors.includes(color.id) ? "before:border-[#ffb700]" : "before:border-accent-input")}
                                                         style={{
-                                                            backgroundColor: color.hex,
+                                                            backgroundColor: color.hexCode,
                                                         }}
                                                     />
                                                 </div>
@@ -165,7 +165,7 @@ const Page = ({ params }: Props) => {
                                             <div key={size.id} className="flex relative space-x-[6px] items-center w-fit mt-1">
                                                 <Checkbox id={size.id} />
                                                 <label htmlFor={size.id} className="text-[10px] tracking-[.1rem] cursor-pointer capitalize">
-                                                    {size.label}
+                                                    {size.name}
                                                 </label>
                                                 <span className="absolute -right-[8px] -top-[8px] text-[10px] text-muted-foreground opacity-50">{size.count}</span>
                                             </div>
@@ -193,7 +193,7 @@ const Page = ({ params }: Props) => {
                     </div>
                     <div className="grid grid-cols-3 gap-4 w-full ml-10">
                         {products.map((product) => (
-                            <ProductItem key={product.id} item={product} />
+                            <CollectionItem key={product.id} collectionId={params.collectionId} item={product} />
                         ))}
                     </div>
                 </div>

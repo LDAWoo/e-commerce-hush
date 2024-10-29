@@ -1,10 +1,10 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import type { User as AuthUser } from "@clerk/nextjs/server";
 import { clerkClient, currentUser } from "@clerk/nextjs/server";
 import { db } from "./db";
 import { User } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 
 export const createUser = async (user: User) => {
     if (user.role === "ADMIN") return;
@@ -42,7 +42,6 @@ export const verifyUser = async () => {
         country: "",
         phone: "",
         address: "",
-        cartId: null,
     });
 
     await saveActivityLogsNotification({
@@ -75,7 +74,7 @@ export const getAuthUserDetails = async () => {
             email: user.emailAddresses[0].emailAddress,
         },
         include: {
-            Permissions: true,
+            permissions: true,
         },
     });
 
@@ -150,4 +149,32 @@ export const getUser = async (userId: string) => {
         },
     });
     return user;
+};
+
+export const getProducts = async (page: number = 1, limit: number = 10, sort: string = "createdAt", order: "asc" | "desc" = "desc", filter: Record<string, any> = {}) => {
+    const skip = (page - 1) * limit;
+
+    const where: Prisma.ProductWhereInput = {
+        name: filter.name,
+        category: filter.category || undefined,
+        status: filter.status || undefined,
+    };
+
+    const [products, total] = await Promise.all([
+        db.product.findMany({
+            where,
+            skip,
+            take: limit,
+            orderBy: { [sort]: order },
+        }),
+        db.product.count({ where }),
+    ]);
+
+    return {
+        products,
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
+    };
 };
