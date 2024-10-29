@@ -5,16 +5,14 @@ import { ChildrenProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 
-// Define the context shape
 interface NavigationContextType {
     open: boolean;
     setOpen: (open: boolean) => void;
+    defaultOpen?: boolean; // Add this line
 }
 
-// Create the context with default values
 const NavigationContext = createContext<NavigationContextType | undefined>(undefined);
 
-// Use this hook to access the navigation context
 const useNavigation = () => {
     const context = useContext(NavigationContext);
     if (context === undefined) {
@@ -23,9 +21,8 @@ const useNavigation = () => {
     return context;
 };
 
-// NavigationProvider component
-const NavigationProvider = ({ children }: ChildrenProps) => {
-    const [open, setOpen] = useState(false);
+const NavigationProvider = ({ children, defaultOpen = false }: { children: ReactNode; defaultOpen?: boolean }) => {
+    const [open, setOpen] = useState(defaultOpen); // Use defaultOpen here
 
     return <NavigationContext.Provider value={{ open, setOpen }}>{children}</NavigationContext.Provider>;
 };
@@ -35,7 +32,6 @@ type NavigationItemProps = {
     className?: string;
 };
 
-// NavigationItem component
 const NavigationItem = ({ children, className }: NavigationItemProps) => <div className={cn("relative max-w-max", className)}>{children}</div>;
 
 type NavigationTriggerProps = {
@@ -44,7 +40,6 @@ type NavigationTriggerProps = {
     durations?: number;
 };
 
-// NavigationTrigger component with CSS-based progress animation
 const NavigationTrigger = ({ children, className, durations = 0.5, ...props }: NavigationTriggerProps) => {
     const { open, setOpen } = useNavigation();
 
@@ -52,8 +47,8 @@ const NavigationTrigger = ({ children, className, durations = 0.5, ...props }: N
     const handleMouseLeave = () => setOpen(false);
 
     return (
-        <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} data-state={open} className={cn("text-[15px] data-[state=false]:bg-transparent data-[state=true]:bg-white data-[state=true]:text-black transition-none rounded-none p-[7.5px_15px] tracking-[.2rem]", className)} {...props}>
-            <div className="relative">
+        <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} data-state={open} className={cn("text-[15px] data-[state=false]:bg-transparent data-[state=true]:bg-white data-[state=true]:text-black transition-none rounded-none p-[7.5px_15px]", className)} {...props}>
+            <div className="relative tracking-[.2rem]">
                 {children}
                 <div
                     className="absolute h-[2px] w-full -bottom-1 left-0 bg-black"
@@ -70,11 +65,11 @@ const NavigationTrigger = ({ children, className, durations = 0.5, ...props }: N
 type NavigationContentProps = {
     children: React.ReactNode;
     className?: string;
+    defaultOpen?: boolean;
     side?: "left" | "right" | "top" | "bottom";
     align?: "left" | "right" | "top" | "bottom";
 };
 
-// Define variants for NavigationContent
 const NavigationContentVariants = cva("absolute data-[state=true]:block data-[state=false]:hidden data-[state=true]:opacity-1 data-[state=false]:opacity-0 bg-white z-5 shadow-[0_10px_20px_#00000017] min-w-full pt-[10px] pb-[5px]", {
     variants: {
         side: {
@@ -96,9 +91,12 @@ const NavigationContentVariants = cva("absolute data-[state=true]:block data-[st
     },
 });
 
-// NavigationContent component
-const NavigationContent = ({ children, side, align, className }: NavigationContentProps) => {
+const NavigationContent = ({ children, side, align, defaultOpen = false, className }: NavigationContentProps) => {
     const { open, setOpen } = useNavigation();
+
+    useEffect(() => {
+        setOpen(defaultOpen);
+    }, [defaultOpen]);
 
     return (
         <div data-state={open} className={cn(NavigationContentVariants({ align, side }), className, open ? "animate-slide-down" : "animate-slide-up")} onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
