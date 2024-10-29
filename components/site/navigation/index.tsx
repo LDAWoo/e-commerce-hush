@@ -54,8 +54,8 @@ const Navigation = () => {
                     <NavigationTrigger className="uppercase">Bay boy</NavigationTrigger>
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm tracking-[.2rem]">
-                                <Link href={component.href}>{component.title}</Link>
+                            <div key={component.title} className="w-full text-black p-[8px_15px] text-sm">
+                                <Link href={`/collections${component.href}`}>{component.title}</Link>
                             </div>
                         ))}
                     </NavigationContent>
@@ -67,8 +67,8 @@ const Navigation = () => {
                     <NavigationTrigger className="uppercase">Baby girl</NavigationTrigger>
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm tracking-[.2rem]">
-                                <Link href={component.href}>{component.title}</Link>
+                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm">
+                                <Link href={`/collections${component.href}`}>{component.title}</Link>
                             </div>
                         ))}
                     </NavigationContent>
@@ -78,10 +78,10 @@ const Navigation = () => {
             <NavigationProvider>
                 <NavigationItem className="static">
                     <NavigationTrigger className="uppercase">Boy</NavigationTrigger>
-                    <NavigationContent className="w-full">
+                    <NavigationContent className="data-[state=true]:!grid grid-cols-4 w-full">
                         {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm tracking-[.2rem]">
-                                <Link href={component.href}>{component.title}</Link>
+                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm">
+                                <Link href={`/collections${component.href}`}>{component.title}</Link>
                             </div>
                         ))}
                     </NavigationContent>
@@ -93,8 +93,8 @@ const Navigation = () => {
                     <NavigationTrigger className="uppercase">Girl</NavigationTrigger>
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm tracking-[.2rem]">
-                                <Link href={component.href}>{component.title}</Link>
+                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm">
+                                <Link href={`/collections${component.href}`}>{component.title}</Link>
                             </div>
                         ))}
                     </NavigationContent>
@@ -106,8 +106,8 @@ const Navigation = () => {
                     <NavigationTrigger className="uppercase">Teen</NavigationTrigger>
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm tracking-[.2rem]">
-                                <Link href={component.href}>{component.title}</Link>
+                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm">
+                                <Link href={`/collections${component.href}`}>{component.title}</Link>
                             </div>
                         ))}
                     </NavigationContent>
@@ -119,8 +119,8 @@ const Navigation = () => {
                     <NavigationTrigger className="uppercase">Ladies</NavigationTrigger>
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm tracking-[.2rem]">
-                                <Link href={component.href}>{component.title}</Link>
+                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm">
+                                <Link href={`/collections${component.href}`}>{component.title}</Link>
                             </div>
                         ))}
                     </NavigationContent>
@@ -132,8 +132,8 @@ const Navigation = () => {
                     <NavigationTrigger className="uppercase">Our brands</NavigationTrigger>
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm tracking-[.2rem]">
-                                <Link href={component.href}>{component.title}</Link>
+                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm">
+                                <Link href={`/collections${component.href}`}>{component.title}</Link>
                             </div>
                         ))}
                     </NavigationContent>
@@ -145,8 +145,8 @@ const Navigation = () => {
                     <NavigationTrigger className="uppercase">Sale</NavigationTrigger>
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm tracking-[.2rem]">
-                                <Link href={component.href}>{component.title}</Link>
+                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm">
+                                <Link href={`/collections${component.href}`}>{component.title}</Link>
                             </div>
                         ))}
                     </NavigationContent>
