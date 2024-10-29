@@ -5,29 +5,62 @@ import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 type SidebarItemProps = {
     isOpen: boolean;
 } & DashBoardSideBarProps;
 
-const SidebarItem = ({ link, icon, name, isOpen }: SidebarItemProps) => {
+const SidebarItem = ({ link, icon, name, isOpen, subItems }: SidebarItemProps) => {
     const pathname = usePathname();
 
-    const results = icons.find((i) => i.value === icon);
-    const val = results ? <results.path size={18} /> : null;
+    const IconComponent = icons.find((i) => i.value === icon)?.path;
+
+    if (subItems) {
+        return (
+            <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="my-shop" className="border-none">
+                    <AccordionTrigger className="py-2 hover:no-underline " arrow>
+                        <Button
+                            variant="ghost"
+                            className={clsx("w-full justify-start hover:bg-transparent", {
+                                "p-2": !isOpen,
+                            })}
+                        >
+                            {IconComponent && <IconComponent size={18} className="mr-2" />}
+                            {isOpen && name}
+                        </Button>
+                    </AccordionTrigger>
+                    <AccordionContent className="ml-[35px]">
+                        {subItems.map((subItem) => (
+                            <Link key={subItem.link} href={subItem.link}>
+                                <Button
+                                    variant="ghost"
+                                    className={clsx("w-full justify-start pl-8", {
+                                        "bg-primary/10": pathname === subItem.link,
+                                    })}
+                                >
+                                    {subItem.name}
+                                </Button>
+                            </Link>
+                        ))}
+                    </AccordionContent>
+                </AccordionItem>
+            </Accordion>
+        );
+    }
 
     return (
-        <Link href={`${link}`} className="w-full">
+        <Link href={link}>
             <Button
-                className={clsx("w-full text-muted-foreground p-[12px_20px] hover:text-primary-foreground justify-start rounded-none bg-transparent hover:bg-primary/90", {
-                    "bg-primary/90 text-primary-foreground": pathname === link,
-                    "p-4 justify-center": !isOpen,
+                variant="ghost"
+                className={clsx("w-full justify-start", {
+                    "bg-primary/10": pathname === link,
+                    "p-2": !isOpen,
                 })}
             >
-                <div className="flex flex-row gap-4 items-center">
-                    {val}
-                    {isOpen && name}
-                </div>
+                {IconComponent && <IconComponent size={18} className="mr-2" />}
+                {isOpen && name}
             </Button>
         </Link>
     );

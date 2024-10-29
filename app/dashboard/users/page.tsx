@@ -13,7 +13,7 @@ const Page = async () => {
         <div className="flex h-screen bg-accent overflow-hidden">
             <Sidebar />
             <div className="flex flex-col w-full overflow-y-auto">
-                <Header name={user?.name} avatar={user?.avatarUrl} />
+                <Header name={user?.name} avatar={user?.avatarUrl as string} />
                 <div className="w-full h-full p-3">
                     <div className="flex flex-col w-full h-full gap-3">
                         <div className="flex flex-row gap-2">

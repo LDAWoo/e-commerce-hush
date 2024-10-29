@@ -5,7 +5,6 @@ import React from "react";
 
 const Page = async () => {
     const user = await verifyUser();
-    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     return (
         <div className="h-screen">
@@ -14,7 +13,7 @@ const Page = async () => {
                     <Sidebar />
                 </div>
                 <div className="flex flex-col w-full">
-                    <Header name={user?.name} avatar={user?.avatarUrl} />
+                    <Header name={user?.name} avatar={user?.avatarUrl as string} />
                     <div className="bg-accent w-full h-full"></div>
                 </div>
             </div>

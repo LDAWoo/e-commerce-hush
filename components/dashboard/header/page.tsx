@@ -1,9 +1,7 @@
 "use client";
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { UserButton } from "@clerk/nextjs";
 import { Bell, CreditCard, LogOut, MessageSquare, Moon, Search, Settings, Sun, User } from "lucide-react";
 import { useTheme } from "next-themes";
 
