@@ -1,10 +1,17 @@
 import Header from "@/components/header";
 import Hero from "@/components/hero";
+import SectionFeatures from "@/components/sections/section-features";
+import SectionPromo from "@/components/sections/section-promo";
 import Navigation from "@/components/site/navigation";
+import { currentUser } from "@/lib/current-user";
 import React from "react";
 
 const Page = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const user = currentUser();
+
+    console.log(1);
+
+    console.log({ ...user });
 
     return (
         <div className="h-screen">
@@ -12,7 +19,8 @@ const Page = async () => {
                 <Navigation />
             </Header>
             <Hero />
-            <div className="h-[500px]"></div>
+            <SectionPromo />
+            <SectionFeatures />
         </div>
     );
 };

@@ -1,16 +1,30 @@
+"use client";
+import { useModal } from "@/provider/modal-provider";
+import { Heart, Search, ShoppingCart, UserRound } from "lucide-react";
 import React from "react";
-import { Heart, Menu, Search, ShoppingCart, UserRound } from "lucide-react";
+import AuthenticationForm from "../forms/authentication-form";
+import CustomModal from "../global/custom-modal";
+import { Button } from "../ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
-import { Button } from "../ui/button";
 
 const InfoRight = () => {
+    const { setOpen } = useModal();
     return (
         <div className="flex items-center ">
             <Button className="bg-transparent text-current hover:bg-transparent">
                 <Search size={20} />
             </Button>
-            <Button className="bg-transparent text-current hover:bg-transparent">
+            <Button
+                onClick={() => {
+                    setOpen(
+                        <CustomModal className="w-[600px] p-0 gap-0 !rounded-none shadow-[0_5px_15px_rgba(0,0,0,.5)] !bg-transparent border-0">
+                            <AuthenticationForm />
+                        </CustomModal>
+                    );
+                }}
+                className="bg-transparent text-current hover:bg-transparent"
+            >
                 <Heart size={20} />
             </Button>
             <DropdownMenu>
