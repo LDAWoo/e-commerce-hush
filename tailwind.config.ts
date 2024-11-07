@@ -13,6 +13,9 @@ const config = {
             },
         },
         extend: {
+            fontFamily: {
+                twentieth: ["var(--font-twentieth)"],
+            },
             colors: {
                 rating: "hsl(var(--rating-review))",
                 border: "hsl(var(--border))",
@@ -141,6 +144,20 @@ const config = {
                         left: "-200%",
                     },
                 },
+                loading: {
+                    "0%": {
+                        strokeDasharray: "1, 150",
+                        strokeDashoffset: "0",
+                    },
+                    "50%": {
+                        strokeDasharray: "90, 150",
+                        strokeDashoffset: "-35",
+                    },
+                    "100%": {
+                        strokeDasharray: "90, 150",
+                        strokeDashoffset: "-124",
+                    },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
@@ -153,6 +170,8 @@ const config = {
                 "ride-up": "ride-up .8s cubic-bezier(.26, .54, .32, 1) forwards",
                 "transform-up": "transform-up .4s cubic-bezier(.165,.84,.46, 1)",
                 "fade-in": "fade-in 1s cubic-bezier(.26,.54,.32,1) 0s forwards",
+                loading: "loading 1.5s ease-in-out infinite",
+                "spin-slow": "spin 1.5s linear infinite",
             },
         },
     },

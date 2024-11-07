@@ -1,17 +1,17 @@
 "use client";
+import { cn } from "@/lib/utils";
+import { Plus } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { HeartFillIcon, LoadingIcon, ShareIcon } from "../icons";
 import { Button } from "../ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "../ui/sheet";
-import { Plus } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import WishListItem from "./wishlist-item";
-import { cn } from "@/lib/utils";
 const WishList = () => {
     const [isLoading, setIsLoading] = React.useState(false);
 
     return (
-        <Sheet defaultOpen>
+        <Sheet>
             <SheetTrigger asChild>
                 <div className="fixed  top-1/2 translate-y-1/2 right-0 rotate-90 origin-top-right z-50">
                     <div className="flex rotate-180">
@@ -66,3 +66,5 @@ const WishList = () => {
         </Sheet>
     );
 };
+
+export default WishList;

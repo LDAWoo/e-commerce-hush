@@ -97,8 +97,8 @@ a img {
 body,
 * {
     letter-spacing: 0.025em;
-    font-family: Futura, sans-serif;
     line-height: 1.6;
+    font-family: Twentieth Century, serif;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeSpeed;
@@ -106,17 +106,17 @@ body,
 
 h1 {
     font-family: Tiemann, serif;
-    font-weight: 400;
+    font-weight: 400 !important;
     letter-spacing: 0em;
     line-height: 1;
     text-transform: uppercase;
-    font-size: 2.375em;
+    font-size: 2.375em !important;
 }
 
 h2 {
     font-family: Tiemann, serif;
-    font-weight: 400;
-    font-size: 2.0425em;
+    font-weight: 400 !important;
+    font-size: 2.0425em !important;
     text-transform: uppercase;
     line-height: 1;
     letter-spacing: 0em;

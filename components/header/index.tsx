@@ -1,7 +1,6 @@
 "use client";
 import useScroll from "@/hooks/useScroll";
 import { ChildrenProps } from "@/lib/types";
-import clsx from "clsx";
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +8,8 @@ import { Button } from "../ui/button";
 import InfoRight from "./info-right";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
+import Toolbar from "./tool-bar";
 
 type HeaderProps = {
     className?: string;
@@ -28,10 +29,12 @@ const Header = ({ children, className }: HeaderProps) => {
         <div>
             <div className="relative">
                 <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-[#0000004d] to-[#0000]">
-                    <div></div>
-                    <div className="h-[200px]">
+                    <div>
+                        <Toolbar />
+                    </div>
+                    <div className="h-[198px]">
                         <header
-                            className={clsx(
+                            className={cn(
                                 "p-[7px_0] md:p-[20px_0] relative text-white",
                                 {
                                     "!fixed top-0 left-0 right-0 bg-white !text-black animate-transform-up": isScrolled,

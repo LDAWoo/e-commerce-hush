@@ -29,11 +29,11 @@ const Hero = () => {
         <div className="min-h-[700px]">
             <div className="h-[100vh] relative overflow-hidden bg-background">
                 <div className="animate-zoom-fade transition-none absolute top-0 left-0 h-full w-full">
-                    <div className="absolute top-0 left-0 h-full w-full hero-media">
+                    <div className="absolute top-0 left-0 h-full w-full">
                         <div className="absolute top-0 left-0 w-full h-full z-10 group">
                             <div className="absolute top-0 left-0 w-full h-full group-hover:hidden"></div>
                         </div>
-                        <Youtube videoId="_S5wV_lDaIw" opts={opts} className="absolute top-0 left-0 right-0 bottom-0" />
+                        <Youtube videoId="_S5wV_lDaIw" opts={opts} className="absolute top-0 -left-full w-[300%] h-full min-[1140px]:-top-full min-[1140px]:left-auto min-[1140px]:w-full min-[1140px]:h-[300%]" />
                     </div>
                 </div>
                 <div className="relative h-full text-white">

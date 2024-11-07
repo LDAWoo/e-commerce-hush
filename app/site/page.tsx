@@ -1,3 +1,4 @@
+import WishList from "@/components/global/wishlist";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import SectionFeatures from "@/components/sections/section-features";
@@ -21,6 +22,7 @@ const Page = async () => {
             <Hero />
             <SectionPromo />
             <SectionFeatures />
+            <WishList />
         </div>
     );
 };

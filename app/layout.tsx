@@ -1,13 +1,10 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import "@/styles/reset.css";
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import { ThemeProvider } from "@/provider/theme-provider";
-import { ModalProvider } from "@/provider/modal-provider";
 import { Toaster } from "@/components/ui/toaster";
-
-const inter = Inter({ subsets: ["latin"] });
+import { ModalProvider } from "@/provider/modal-provider";
+import { ThemeProvider } from "@/provider/theme-provider";
+import "@/styles/reset.css";
+import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
     title: "Hush Shop",
