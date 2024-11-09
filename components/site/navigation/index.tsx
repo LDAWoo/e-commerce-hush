@@ -1,5 +1,5 @@
+import { ArrowDownIcon } from "@/components/icons";
 import { NavigationContent, NavigationItem, NavigationProvider, NavigationTrigger } from "@/components/ui/navigation";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 
@@ -48,14 +48,19 @@ const Navigation = () => {
     ];
 
     return (
-        <div className="hidden md:flex w-full gap-2 justify-center items-center mt-[10px]">
+        <div className="hidden md:flex w-full gap-0 justify-center items-center mt-[10px]">
             <NavigationProvider>
                 <NavigationItem>
-                    <NavigationTrigger className="uppercase">Bay boy</NavigationTrigger>
+                    <NavigationTrigger>
+                        {" Bay boy "}
+                        <ArrowDownIcon size={10} className="inline-block ml-1 mb-1" />
+                    </NavigationTrigger>
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
-                            <div key={component.title} className="w-full text-black p-[8px_15px] text-sm">
-                                <Link href={`/collections${component.href}`}>{component.title}</Link>
+                            <div key={component.title} className="w-full">
+                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[16px] text-foreground">
+                                    {component.title}
+                                </Link>
                             </div>
                         ))}
                     </NavigationContent>
@@ -64,11 +69,16 @@ const Navigation = () => {
 
             <NavigationProvider>
                 <NavigationItem>
-                    <NavigationTrigger className="uppercase">Baby girl</NavigationTrigger>
+                    <NavigationTrigger>
+                        {" Baby girl "}
+                        <ArrowDownIcon size={10} className="inline-block ml-1 mb-1" />
+                    </NavigationTrigger>
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm">
-                                <Link href={`/collections${component.href}`}>{component.title}</Link>
+                            <div key={component.title} className="w-full">
+                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[16px] text-foreground">
+                                    {component.title}
+                                </Link>
                             </div>
                         ))}
                     </NavigationContent>
@@ -77,11 +87,34 @@ const Navigation = () => {
 
             <NavigationProvider>
                 <NavigationItem className="static">
-                    <NavigationTrigger className="uppercase">Boy</NavigationTrigger>
-                    <NavigationContent className="data-[state=true]:!grid grid-cols-4 w-full">
+                    <NavigationTrigger>
+                        {" Boy "}
+                        <ArrowDownIcon size={10} className="inline-block ml-1 mb-1" />
+                    </NavigationTrigger>
+                    <NavigationContent className="w-full">
+                        <div className="flex flex-wrap w-full p-[39px_50px]">
+                            {components.map((component) => (
+                                <div key={component.title} className="flex pl-[22px] w-[25%] text-black p-[8px_15px] text-[17px] uppercase">
+                                    <Link href={`/collections${component.href}`}>{component.title}</Link>
+                                </div>
+                            ))}
+                        </div>
+                    </NavigationContent>
+                </NavigationItem>
+            </NavigationProvider>
+
+            <NavigationProvider>
+                <NavigationItem>
+                    <NavigationTrigger>
+                        {" Girl "}
+                        <ArrowDownIcon size={10} className="inline-block ml-1 mb-1" />
+                    </NavigationTrigger>
+                    <NavigationContent className="w-[162px]">
                         {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm">
-                                <Link href={`/collections${component.href}`}>{component.title}</Link>
+                            <div key={component.title} className="w-full">
+                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[16px] text-foreground">
+                                    {component.title}
+                                </Link>
                             </div>
                         ))}
                     </NavigationContent>
@@ -90,11 +123,16 @@ const Navigation = () => {
 
             <NavigationProvider>
                 <NavigationItem>
-                    <NavigationTrigger className="uppercase">Girl</NavigationTrigger>
+                    <NavigationTrigger>
+                        {" Teen "}
+                        <ArrowDownIcon size={10} className="inline-block ml-1 mb-1" />
+                    </NavigationTrigger>
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm">
-                                <Link href={`/collections${component.href}`}>{component.title}</Link>
+                            <div key={component.title} className="w-full">
+                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[16px] text-foreground">
+                                    {component.title}
+                                </Link>
                             </div>
                         ))}
                     </NavigationContent>
@@ -103,57 +141,31 @@ const Navigation = () => {
 
             <NavigationProvider>
                 <NavigationItem>
-                    <NavigationTrigger className="uppercase">Teen</NavigationTrigger>
+                    <NavigationTrigger>
+                        {" Ladies "}
+                        <ArrowDownIcon size={10} className="inline-block ml-1 mb-1" />
+                    </NavigationTrigger>
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm">
-                                <Link href={`/collections${component.href}`}>{component.title}</Link>
+                            <div key={component.title} className="w-full">
+                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[16px] text-foreground">
+                                    {component.title}
+                                </Link>
                             </div>
                         ))}
                     </NavigationContent>
                 </NavigationItem>
             </NavigationProvider>
 
-            <NavigationProvider>
-                <NavigationItem>
-                    <NavigationTrigger className="uppercase">Ladies</NavigationTrigger>
-                    <NavigationContent className="w-[162px]">
-                        {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm">
-                                <Link href={`/collections${component.href}`}>{component.title}</Link>
-                            </div>
-                        ))}
-                    </NavigationContent>
-                </NavigationItem>
-            </NavigationProvider>
+            <Link href={`/collections/our-brands`} className="rounded-none p-[7.5px_15px] relative tracking-[.2rem] text-[16px] uppercase">
+                {" Our brands "}
+            </Link>
 
-            <NavigationProvider>
-                <NavigationItem>
-                    <NavigationTrigger className="uppercase">Our brands</NavigationTrigger>
-                    <NavigationContent className="w-[162px]">
-                        {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm">
-                                <Link href={`/collections${component.href}`}>{component.title}</Link>
-                            </div>
-                        ))}
-                    </NavigationContent>
-                </NavigationItem>
-            </NavigationProvider>
-
-            <NavigationProvider>
-                <NavigationItem>
-                    <NavigationTrigger className="uppercase">Sale</NavigationTrigger>
-                    <NavigationContent className="w-[162px]">
-                        {components.map((component) => (
-                            <div key={component.title} className=" w-full text-black p-[8px_15px] text-sm">
-                                <Link href={`/collections${component.href}`}>{component.title}</Link>
-                            </div>
-                        ))}
-                    </NavigationContent>
-                </NavigationItem>
-            </NavigationProvider>
+            <Link href={`/collections/sale`} className="rounded-none p-[7.5px_15px] relative tracking-[.2rem] text-[16px] uppercase">
+                {" Sale "}
+            </Link>
         </div>
     );
 };
 
-export default Navigation;
+export default React.memo(Navigation);

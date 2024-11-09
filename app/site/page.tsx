@@ -1,7 +1,9 @@
+import Footer from "@/components/footer";
 import WishList from "@/components/global/wishlist";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import SectionFeatures from "@/components/sections/section-features";
+import SectionNewArrival from "@/components/sections/section-new-arrival";
 import SectionPromo from "@/components/sections/section-promo";
 import Navigation from "@/components/site/navigation";
 import { currentUser } from "@/lib/current-user";
@@ -22,6 +24,8 @@ const Page = async () => {
             <Hero />
             <SectionPromo />
             <SectionFeatures />
+            <SectionNewArrival />
+            <Footer />
             <WishList />
         </div>
     );

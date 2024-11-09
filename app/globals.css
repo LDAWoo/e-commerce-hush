@@ -4,6 +4,8 @@
 
 @layer base {
     :root {
+        --type-base-size: 18px;
+        --page-max-width: 1500px;
         --font-twentieth: "Twentieth Century";
         --gw-wishlist-heart-background: #f44336;
         --gw-wishlist-heart-foreground: #ef466f;

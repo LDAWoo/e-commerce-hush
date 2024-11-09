@@ -121,3 +121,11 @@ h2 {
     line-height: 1;
     letter-spacing: 0em;
 }
+
+h4 {
+    font-family: Tenor Sans, serif;
+    font-weight: 400 !important;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0em;
+}

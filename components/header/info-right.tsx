@@ -1,19 +1,18 @@
 "use client";
 import { useModal } from "@/provider/modal-provider";
-import { Heart, Search, ShoppingCart, UserRound } from "lucide-react";
 import React from "react";
+import { CiHeart } from "react-icons/ci";
 import AuthenticationForm from "../forms/authentication-form";
 import CustomModal from "../global/custom-modal";
+import { CartIcon, UserIcon } from "../icons";
 import { Button } from "../ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
-
 const InfoRight = () => {
     const { setOpen } = useModal();
     return (
-        <div className="flex items-center ">
-            <Button className="bg-transparent text-current hover:bg-transparent">
-                <Search size={20} />
+        <div className="flex items-center">
+            <Button variant={"ghost"} className="bg-transparent p-[7.5px_15px] h-auto text-current hover:bg-transparent hover:text-current duration-0">
+                <UserIcon size={28} />
             </Button>
             <Button
                 onClick={() => {
@@ -23,39 +22,15 @@ const InfoRight = () => {
                         </CustomModal>
                     );
                 }}
-                className="bg-transparent text-current hover:bg-transparent"
+                variant={"ghost"}
+                className="bg-transparent p-[7.5px_15px] h-auto text-current hover:bg-transparent hover:text-current duration-0"
             >
-                <Heart size={20} />
+                <CiHeart size={28} />
             </Button>
-            <DropdownMenu>
-                <DropdownMenuTrigger className="w-10 h-10 items-center flex justify-center">
-                    <UserRound size={20} />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent side="bottom" align="end">
-                    <DropdownMenuGroup>
-                        <DropdownMenuItem>
-                            <span>View Order</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                            <span>View Profile</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                            <span>My Wishlist</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                            <span>Edit Profile</span>
-                        </DropdownMenuItem>
-                    </DropdownMenuGroup>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem>
-                        <span>Logout</span>
-                    </DropdownMenuItem>
-                </DropdownMenuContent>
-            </DropdownMenu>
 
             <Sheet>
-                <SheetTrigger className="w-10 h-10 flex items-center justify-center">
-                    <ShoppingCart size={20} />
+                <SheetTrigger className="p-[7.5px_15px] h-auto flex items-center justify-center duration-0">
+                    <CartIcon size={28} />
                 </SheetTrigger>
                 <SheetContent
                     className="p-[0_30px] h-full"

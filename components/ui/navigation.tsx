@@ -1,9 +1,7 @@
 "use client";
-import { createContext, useContext, useState, ReactNode, useEffect } from "react";
-import { Button } from "./button";
-import { ChildrenProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
 interface NavigationContextType {
     open: boolean;
@@ -47,8 +45,8 @@ const NavigationTrigger = ({ children, className, durations = 0.5, ...props }: N
     const handleMouseLeave = () => setOpen(false);
 
     return (
-        <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} data-state={open} className={cn("text-[15px] data-[state=false]:bg-transparent data-[state=true]:bg-white data-[state=true]:text-black transition-none rounded-none p-[7.5px_15px]", className)} {...props}>
-            <div className="relative tracking-[.2rem]">
+        <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} data-state={open} className={cn("data-[state=false]:bg-transparent data-[state=true]:bg-transparent transition-none rounded-none p-[7.5px_15px]", className)} {...props}>
+            <div className="relative tracking-[.2rem] text-[16px] uppercase">
                 {children}
                 <div
                     className="absolute h-[2px] w-full -bottom-1 left-0 bg-black"
@@ -105,4 +103,4 @@ const NavigationContent = ({ children, side, align, defaultOpen = false, classNa
     );
 };
 
-export { NavigationProvider, NavigationTrigger, NavigationItem, NavigationContent, useNavigation };
+export { NavigationContent, NavigationItem, NavigationProvider, NavigationTrigger, useNavigation };

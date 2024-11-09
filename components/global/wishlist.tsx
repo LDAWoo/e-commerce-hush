@@ -13,9 +13,9 @@ const WishList = () => {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <div className="fixed  top-1/2 translate-y-1/2 right-0 rotate-90 origin-top-right z-50">
+                <div className="fixed top-1/2 translate-y-1/2 right-0 rotate-90 origin-top-right z-50 ">
                     <div className="flex rotate-180">
-                        <Button className="rounded-none rounded-tl-[22px] rounded-tr-[22px] justify-around p-[6px] min-[480px]:p-[0_1.5em_0_.5em] gap-[5px] bg-background hover:bg-background">
+                        <Button variant={"ghost"} className="rounded-none rounded-tl-[22px] rounded-tr-[22px] justify-around p-[6px] min-[480px]:p-[0_1.5em_0_.5em] gap-[5px] bg-background hover:bg-background shadow-[0_3px_14px_rgba(218,218,218,1)]">
                             <div className="flex rotate-90 justify-center items-center w-[32px] h-[32px] rounded-full bg-[var(--gw-wishlist-heart-background)] text-white">
                                 <HeartFillIcon size={16} />
                             </div>
