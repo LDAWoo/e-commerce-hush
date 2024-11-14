@@ -1,5 +1,6 @@
 import { Color, Size } from "@prisma/client";
 import { Box, Info, LayoutGrid, LayoutList, LogOut, Settings, UserRound } from "lucide-react";
+import { CN, ES, JP, KR, US, VN } from "country-flag-icons/react/3x2";
 
 export type DashBoardSideBarProps = {
     name: string;
@@ -231,3 +232,48 @@ export const promos: ProductType[] = [
 ];
 
 export const productDetails = { id: 8, name: "Maxi Skirt", description: "Flowing maxi skirt", price: 44.99, category: "Bottoms", images: ["https://picsum.photos/seed/maxiskirt1/400/300", "https://picsum.photos/seed/maxiskirt2/400/300"], rating: 4.3, stock: 50, sizes: ["XS", "S", "M", "L"], colors: ["Black", "Floral"] };
+
+export const languages = [
+    {
+        id: 1,
+        locale: "vi",
+        name: "Vietnam",
+        icon: VN,
+        translationKey: "languages.vietnamese",
+    },
+    {
+        id: 2,
+        locale: "en",
+        name: "English",
+        icon: US,
+        translationKey: "languages.englishUS",
+    },
+    {
+        id: 3,
+        locale: "zh",
+        name: "简体中文",
+        icon: CN,
+        translationKey: "languages.chineseSimplified",
+    },
+    {
+        id: 4,
+        locale: "ja",
+        name: "日本語",
+        icon: JP,
+        translationKey: "languages.japanese",
+    },
+    {
+        id: 5,
+        locale: "ko",
+        name: "한국어",
+        icon: KR,
+        translationKey: "languages.korean",
+    },
+    {
+        id: 6,
+        locale: "es",
+        name: "Español",
+        icon: ES,
+        translationKey: "languages.spanish",
+    },
+];

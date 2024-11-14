@@ -1,8 +1,8 @@
 import React from "react";
 import NewArrivalItem from "./new-arrival-item";
 import { products } from "@/lib/constants";
-import Link from "next/link";
 import { Button } from "../ui/button";
+import { Link } from "@/i18n/routing";
 
 const SectionNewArrival = () => {
     return (
@@ -22,12 +22,12 @@ const SectionNewArrival = () => {
 
                                     return (
                                         <>
-                                            <NewArrivalItem key={index} item={product} collectionId="" />
+                                            <NewArrivalItem key={index} item={product} />
 
                                             {isLastProduct && (
                                                 <>
                                                     <div key={index} className="flex flex-[0_0_39vw] pl-[17px] justify-center items-center md:hidden">
-                                                        <Link href={`/collections/`} className="p-[15px] text-center border border-border text-[.75em] -mt-[60px] tracking-[.1em]">
+                                                        <Link href={`/collections`} className="p-[15px] text-center border border-border text-[.75em] -mt-[60px] tracking-[.1em]">
                                                             View all
                                                             <br />
                                                             919 products
@@ -35,11 +35,9 @@ const SectionNewArrival = () => {
                                                     </div>
 
                                                     <div className="w-full hidden md:flex justify-center items-center pl-[22px]">
-                                                        <Button className="rounded-none p-0 uppercase min-w-[90px] h-auto">
-                                                            <Link href={`/collections/`} className="tracking-[.3em] leading-[1.42] text-[14px] p-[11px_20px]">
-                                                                View all
-                                                            </Link>
-                                                        </Button>
+                                                        <Link href={`/collections`} className="tracking-[.3em] leading-[1.42] text-[14px]">
+                                                            <Button className="rounded-none uppercase min-w-[90px] h-auto  p-[11px_20px]">View all</Button>
+                                                        </Link>
                                                     </div>
                                                 </>
                                             )}
@@ -55,4 +53,4 @@ const SectionNewArrival = () => {
     );
 };
 
-export default SectionNewArrival;
+export default React.memo(SectionNewArrival);

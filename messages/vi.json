@@ -1,0 +1,19 @@
+{
+    "LOCAL_LAYOUT": {
+        "LBL_TITLE": "Hush Shop"
+    },
+    "PAGE_NOT_PAGE": {
+        "LBL_TITLE": "404 Không tìm thấy trang",
+        "LBL_SUBTITLE": "Trang bạn đang tìm kiếm không tồn tại.",
+        "LBL_CONTINUE_HOME": "Tiếp tục mua sắm"
+    },
+    "FOOTER": {
+        "LBL_HELP_AND_INFO": "Trợ Giúp & Thông Tin",
+        "LBL_MAIN_MENU": "Menu Chính",
+        "LBL_SIGN_UP_AND_SAVE": "Đăng ký và lưu",
+        "LBL_SUBSCRIBE": "Đăng ký để nhận ưu đãi đặc biệt, quà tặng miễn phí và những món hời hiếm có.",
+        "LBL_TERMS_OF_SERVICE": "Điều Khoản Dịch Vụ",
+        "LBL_PRIVACY_POLICY": "Chính Sách Bảo Mật",
+        "LBL_COPYRIGHT": "Bản quyền © 2024 Hush.Shop - Bảo Lưu Tất Cả Quyền - The Hush Shop là một thương hiệu đã được đăng ký."
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "LOCAL_LAYOUT": {
+        "LBL_TITLE": "Hush Shop"
+    },
+    "PAGE_NOT_PAGE": {
+        "LBL_TITLE": "404 Page Not Found",
+        "LBL_SUBTITLE": "The page you're looking for doesn't exist.",
+        "LBL_CONTINUE_HOME": "Continue Shopping"
+    },
+    "FOOTER": {
+        "LBL_HELP_AND_INFO": "Help & Info",
+        "LBL_MAIN_MENU": "Main Menu",
+        "LBL_SIGN_UP_AND_SAVE": "Sign Up And Save",
+        "LBL_SUBSCRIBE": "Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.",
+        "LBL_TERMS_OF_SERVICE": "Terms of Service",
+        "LBL_PRIVACY_POLICY": "Privacy Policy",
+        "LBL_COPYRIGHT": "Copyright © 2024 Hush.Shop - All Rights Reserved - The Hush Shop is a registered trademark."
+    }
+}

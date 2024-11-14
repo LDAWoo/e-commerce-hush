@@ -48,4 +48,4 @@ const Payment = () => {
     );
 };
 
-export default Payment;
+export default React.memo(Payment);

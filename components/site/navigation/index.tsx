@@ -1,6 +1,6 @@
 import { ArrowDownIcon } from "@/components/icons";
 import { NavigationContent, NavigationItem, NavigationProvider, NavigationTrigger } from "@/components/ui/navigation";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import React from "react";
 
 const Navigation = () => {
@@ -48,7 +48,7 @@ const Navigation = () => {
     ];
 
     return (
-        <div className="hidden md:flex w-full gap-0 justify-center items-center mt-[10px]">
+        <div className="hidden md:flex w-full gap-0 justify-center flex-wrap items-center mt-[10px]">
             <NavigationProvider>
                 <NavigationItem>
                     <NavigationTrigger>

@@ -6,11 +6,13 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "..
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
 
 const initialValue = ["menu-1", "menu-2", "menu-3", "menu-4"];
 
 const MenuPup = () => {
     const { theme } = useTheme();
+    const t = useTranslations("FOOTER");
     const logoSrc = theme === "light" ? "/assets/loadify-image.png" : "/assets/logo.png";
 
     const [accordionValue, setAccordionValue] = useState<string[]>(initialValue);
@@ -43,7 +45,7 @@ const MenuPup = () => {
                             "cursor-default": !isMobile,
                         })}
                     >
-                        <div className="uppercase text-[14px] md:text-[16px] tracking-[.3em] whitespace-nowrap">Help & Info</div>
+                        <div className="uppercase text-[14px] md:text-[16px] tracking-[.3em] whitespace-nowrap">{t("LBL_HELP_AND_INFO")}</div>
                         <ArrowDownIcon id="arrow" size={10} className="md:hidden absolute top-1/2 right-1 -translate-y-1/2 transition-transform duration-200" />
                     </AccordionTrigger>
                     <AccordionContent>
@@ -65,7 +67,7 @@ const MenuPup = () => {
                             "cursor-default": !isMobile,
                         })}
                     >
-                        <div className="uppercase text-[14px] md:text-[16px] tracking-[.3em] whitespace-nowrap">Main Menu</div>
+                        <div className="uppercase text-[14px] md:text-[16px] tracking-[.3em] whitespace-nowrap">{t("LBL_MAIN_MENU")}</div>
                         <ArrowDownIcon id="arrow" size={10} className="md:hidden absolute top-1/2 right-1 -translate-y-1/2 transition-transform duration-200" />
                     </AccordionTrigger>
                     <AccordionContent>
@@ -87,11 +89,11 @@ const MenuPup = () => {
                             "cursor-default": !isMobile,
                         })}
                     >
-                        <div className="uppercase text-[14px] md:text-[16px] tracking-[.3em] whitespace-nowrap">Sign Up And Save</div>
+                        <div className="uppercase text-[14px] md:text-[16px] tracking-[.3em] whitespace-nowrap">{t("LBL_SIGN_UP_AND_SAVE")}</div>
                         <ArrowDownIcon id="arrow" size={10} className="md:hidden absolute top-1/2 right-1 -translate-y-1/2 transition-transform duration-200" />
                     </AccordionTrigger>
                     <AccordionContent>
-                        <p className="text-center md:text-left mb-[15px] text-[calc(var(--type-base-size)_*_.85)]">Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
+                        <p className="text-center md:text-left mb-[15px] text-[calc(var(--type-base-size)_*_.85)]">{t("LBL_SUBSCRIBE")}</p>
                     </AccordionContent>
                 </AccordionItem>
 

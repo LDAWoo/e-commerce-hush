@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Youtube, { YouTubeProps, YouTubePlayer } from "react-youtube";
+import Youtube, { YouTubeProps } from "react-youtube";
 import { Button } from "../ui/button";
 
 const Hero = () => {
@@ -61,4 +61,4 @@ const Hero = () => {
     );
 };
 
-export default Hero;
+export default React.memo(Hero);

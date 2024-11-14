@@ -1,12 +1,14 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { Plus } from "lucide-react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
 import { HeartFillIcon, LoadingIcon, ShareIcon } from "../icons";
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
-import WishListItem from "./wishlist-item";
+const WishListItem = dynamic(() => import("./wishlist-item"), { ssr: false });
+
 const WishList = () => {
     const [isLoading, setIsLoading] = React.useState(false);
 
@@ -59,7 +61,6 @@ const WishList = () => {
                 <div className="h-[1px] flex-grow">
                     <div className="required: h-full overflow-y-auto overflow-x-hidden no-scrollbar">
                         <WishListItem />
-                        <WishListItem />
                     </div>
                 </div>
             </SheetContent>
@@ -67,4 +68,4 @@ const WishList = () => {
     );
 };
 
-export default WishList;
+export default React.memo(WishList);

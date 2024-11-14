@@ -68,7 +68,7 @@ type NavigationContentProps = {
     align?: "left" | "right" | "top" | "bottom";
 };
 
-const NavigationContentVariants = cva("absolute data-[state=true]:block data-[state=false]:hidden data-[state=true]:opacity-1 data-[state=false]:opacity-0 bg-white z-5 shadow-[0_10px_20px_#00000017] min-w-full pt-[10px] pb-[5px]", {
+const NavigationContentVariants = cva("absolute data-[state=true]:block data-[state=false]:hidden data-[state=true]:opacity-1 data-[state=false]:opacity-0 bg-background z-[10] shadow-[0_10px_20px_#00000017] min-w-full pt-[10px] pb-[5px]", {
     variants: {
         side: {
             left: "left-0",

@@ -1,5 +1,6 @@
 import React from "react";
 import { FacebookIcon, InstagramIcon, PinterestIcon, TwitterIcon } from "../icons";
+import Currency from "../global/currency";
 
 export const followerOur = [
     {
@@ -34,14 +35,18 @@ const Toolbar = () => {
                     <ul className="inline-flex">
                         {socials.map((soc) => (
                             <li key={soc.link}>
-                                <a href={soc.link} target="_blank" className="text-white p-[5px] block">
+                                <a href={soc.link} target="_blank" className="p-[5px] block">
                                     <soc.icon size={16} />
                                 </a>
                             </li>
                         ))}
                     </ul>
                 </div>
-                <div></div>
+                <div className="flex-[0_1_auto] pl-[5px]">
+                    <div className="ml-[10px]">
+                        <Currency align="end" side="bottom" />
+                    </div>
+                </div>
             </div>
         </div>
     );

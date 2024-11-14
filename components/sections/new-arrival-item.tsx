@@ -1,16 +1,15 @@
 "use client";
+import { Link } from "@/i18n/routing";
 import { ProductType } from "@/lib/constants";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import { CiHeart } from "react-icons/ci";
 
 type NewArrivalItemProps = {
-    collectionId?: string;
     item: ProductType;
 };
 
-const NewArrivalItem = ({ collectionId, item }: NewArrivalItemProps) => {
+const NewArrivalItem = ({ item }: NewArrivalItemProps) => {
     const [isHovered, setIsHovered] = React.useState(false);
     return (
         <div className="mb-0 md:mb-[30px] pl-[17px] md:pl-0 ml-0 md:ml-[22px] flex flex-[0_0_39vw] md:flex-auto w-[39vw] md:w-[calc(20%_-_22px)] h-full">
@@ -20,7 +19,7 @@ const NewArrivalItem = ({ collectionId, item }: NewArrivalItemProps) => {
                         <CiHeart size={24} />
                     </button>
                 </div>
-                <Link href={`/collections/${collectionId}/products/${item.name}`}>
+                <Link href={`/collections/${item.name}/products/${item.name}`}>
                     <div className="relative w-full aspect-[1/1.5]">
                         <Image src={item.images[0]} fill alt={item.name} className={`w-full h-full object-cover transition-opacity duration-700 ease-in-out ${isHovered ? "opacity-0" : "opacity-100"}`} />
                         <Image src={item.images[1]} fill alt={item.name} className={`w-full h-full object-cover transition-opacity duration-700 ease-in-out ${isHovered ? "opacity-100" : "opacity-0"}`} />

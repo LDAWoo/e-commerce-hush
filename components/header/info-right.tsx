@@ -2,11 +2,12 @@
 import { useModal } from "@/provider/modal-provider";
 import React from "react";
 import { CiHeart } from "react-icons/ci";
-import AuthenticationForm from "../forms/authentication-form";
-import CustomModal from "../global/custom-modal";
+import dynamic from "next/dynamic";
 import { CartIcon, UserIcon } from "../icons";
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
+const CustomModal = dynamic(() => import("../global/custom-modal"), { ssr: false });
+const AuthenticationForm = dynamic(() => import("../forms/authentication-form"), { ssr: false });
 const InfoRight = () => {
     const { setOpen } = useModal();
     return (

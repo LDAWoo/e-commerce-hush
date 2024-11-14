@@ -17,6 +17,7 @@ const config = {
                 twentieth: ["var(--font-twentieth)"],
             },
             colors: {
+                skeleton: "hsl(var(--skeleton-background))",
                 rating: "hsl(var(--rating-review))",
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",

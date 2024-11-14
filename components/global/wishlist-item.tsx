@@ -134,4 +134,4 @@ const WishListItem = ({ isLoading = false }) => {
     );
 };
 
-export default WishListItem;
+export default React.memo(WishListItem);

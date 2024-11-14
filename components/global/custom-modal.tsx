@@ -31,4 +31,4 @@ const CustomModal: React.FC<CustomModalProps> = ({ title, description, className
     );
 };
 
-export default CustomModal;
+export default React.memo(CustomModal);
