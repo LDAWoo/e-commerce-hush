@@ -1,17 +1,19 @@
 "use client";
+import dynamic from "next/dynamic";
 import { useModal } from "@/provider/modal-provider";
 import React from "react";
 import { CiHeart } from "react-icons/ci";
-import dynamic from "next/dynamic";
 import { CartIcon, UserIcon } from "../icons";
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
+
 const CustomModal = dynamic(() => import("../global/custom-modal"), { ssr: false });
 const AuthenticationForm = dynamic(() => import("../forms/authentication-form"), { ssr: false });
+
 const InfoRight = () => {
     const { setOpen } = useModal();
     return (
-        <div className="flex items-center">
+        <>
             <Button variant={"ghost"} className="bg-transparent p-[7.5px_15px] h-auto text-current hover:bg-transparent hover:text-current duration-0">
                 <UserIcon size={28} />
             </Button>
@@ -63,7 +65,7 @@ const InfoRight = () => {
                     </SheetFooter>
                 </SheetContent>
             </Sheet>
-        </div>
+        </>
     );
 };
 

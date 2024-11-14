@@ -29,8 +29,8 @@ const Toolbar = () => {
     const socials = React.useMemo(() => followerOur, []);
 
     return (
-        <div className="p-[0_40px]">
-            <div className="flex items-center justify-end">
+        <div className="p-[0_17px] md:p-[0_40px]">
+            <div className="flex items-center justify-between md:justify-end">
                 <div className="flex-[0_1_auto] pr-[5px]">
                     <ul className="inline-flex">
                         {socials.map((soc) => (

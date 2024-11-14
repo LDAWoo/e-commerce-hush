@@ -2,7 +2,6 @@
 import useScroll from "@/hooks/useScroll";
 import { ChildrenProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Menu } from "lucide-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useParams, usePathname } from "next/navigation";
@@ -13,6 +12,7 @@ import { Link } from "@/i18n/routing";
 import React from "react";
 import Search from "./search";
 import { CiSearch } from "react-icons/ci";
+import Menu from "./menu";
 
 type HeaderProps = {
     className?: string;
@@ -60,19 +60,18 @@ const Header = ({ children, className }: HeaderProps) => {
                     >
                         <div className="flex flex-col items-center p-[0_17px] md:p-[0_40px] w-full h-full">
                             <div className="flex flex-row items-center justify-between w-full h-full">
-                                <div className="mr-0 md:mr-[184px]">
-                                    <Button className="flex md:hidden text-current bg-transparent hover:bg-transparent">
-                                        <Menu size={20} />
-                                    </Button>
-
+                                <div className="mr-0 flex-[1_1_130px]">
+                                    <Menu />
                                     <Button onClick={onOpenSearch} className="hidden md:flex text-current hover:text-current bg-transparent hover:bg-transparent" variant={"ghost"}>
                                         <CiSearch size={28} />
                                     </Button>
                                 </div>
-                                <Link href={"/"} className="w-[110px] md:w-[140px] h-[70px] md:h-[100px] relative">
+                                <Link href={"/"} className="w-[110px] flex-[0_1_110px] md:flex-[0_1_140px] md:w-[140px] h-[70px] md:h-[100px] relative">
                                     <Image src={logoSrc} alt="logo" fill />
                                 </Link>
-                                <InfoRight />
+                                <div className="flex-[1_1_130px] flex items-center justify-end">
+                                    <InfoRight />
+                                </div>
                             </div>
                             {children}
                         </div>

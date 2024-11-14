@@ -2,8 +2,8 @@
 
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { cva, type VariantProps } from "class-variance-authority";
-import { X } from "lucide-react";
 import * as React from "react";
+import { VscClose } from "react-icons/vsc";
 
 import { cn } from "@/lib/utils";
 
@@ -53,7 +53,7 @@ const SheetContent = React.forwardRef<React.ElementRef<typeof SheetPrimitive.Con
             <SheetPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
                 {children}
                 <SheetPrimitive.Close className={cn("absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary", classClosedContent)}>
-                    {showX && <X className={cn("h-4 w-4", classClosed)} />}
+                    {showX && <VscClose className={cn("h-4 w-4", classClosed)} />}
                     <span className="sr-only">Close</span>
                 </SheetPrimitive.Close>
             </SheetPrimitive.Content>
