@@ -2,6 +2,43 @@
     "LOCAL_LAYOUT": {
         "LBL_TITLE": "Hush Shop"
     },
+    "PAGE_LOGIN": {
+        "LBL_TITLE": "Login",
+        "LBL_SIGN_IN_WITH_AUTH": "Sign in with social",
+        "LBL_EMAIL": "Email",
+        "LBL_PASSWORD": "Password",
+        "LBL_FORGOT_PASSWORD": "Forgot password?",
+        "LBL_CREATE_ACCOUNT": "Create account",
+        "LBL_SIGN_IN": "Sign in",
+        "LBL_INCORRECT_EMAIL_OR_PASSWORD": "Incorrect email or password."
+    },
+    "PAGE_REGISTER": {
+        "LBL_TITLE": "Create Account",
+        "LBL_FIRST_NAME": "First Name",
+        "LBL_LAST_NAME": "Last Name",
+        "LBL_EMAIL": "Email",
+        "LBL_EMAIL_CANT_BE_BLANK": "Email can't be blank.",
+        "LBL_INVALID_EMAIL": "Invalid email",
+        "LBL_EMAIL_ALREADY_EXISTS": "Email already exists.",
+        "LBL_PASSWORD": "Password",
+        "LBL_PASSWORD_TOO_SHORT": "Password must be at least 8 characters long.",
+        "LBL_PASSWORD_CANT_BE_BLANK": "Password can't be blank.",
+        "LBL_SIGN_IN": "Sign in",
+        "LBL_ALREADY_HAVE_ACCOUNT": "Already have an account?",
+        "LBL_CREATE": "Create"
+    },
+    "PAGE_FORGOT_PASSWORD": {
+        "LBL_TITLE": "Reset your password",
+        "LBL_SUBTITLE": "We will send you an email to reset your password.",
+        "LBL_EMAIL": "Email",
+        "LBL_EMAIL_CANT_BE_BLANK": "Email can't be blank.",
+        "LBL_INVALID_EMAIL": "Invalid email.",
+        "LBL_EMAIL_NOT_FOUND": "No account found with that email.",
+        "LBL_SEND_RESET_EMAIL": "Send Reset Email",
+        "LBL_RESET_EMAIL_SENT": "Reset email sent successfully. Check your inbox.",
+        "LBL_SUBMIT": "Submit",
+        "LBL_BACK_TO_LOGIN": "Back to login"
+    },
     "PAGE_NOT_PAGE": {
         "LBL_TITLE": "404 Page Not Found",
         "LBL_SUBTITLE": "The page you're looking for doesn't exist.",

@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./header";
-import Navigation from "./site/navigation";
+import Navigation from "./navigation";
 import Footer from "./footer";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";

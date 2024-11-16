@@ -42,7 +42,7 @@ const Search = ({ open, onClose = () => {} }: SearchProps) => {
                 </Button>
             </form>
 
-            <div className="absolute top-full mt-4 left-0 right-0 p-4 bg-background min-h-[200px] max-h-[637.375px] z-[5] overflow-y-auto">
+            <div className="absolute top-full mt-4 left-0 right-0 p-4 bg-background min-h-[200px] max-h-[637.375px] z-[5] overflow-y-auto shadow-[0_8px_16px_0_rgba(51,51,51,.16)]">
                 <div className="flex flex-col md:flex-row justify-center md:justify-between">
                     <div className="w-full md:w-[37%] inline-block align-top">
                         <SearchPopular />

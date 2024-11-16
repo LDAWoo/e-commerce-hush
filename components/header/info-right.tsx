@@ -6,21 +6,27 @@ import { CiHeart } from "react-icons/ci";
 import { CartIcon, UserIcon } from "../icons";
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
+import { useRouter } from "@/i18n/routing";
 
 const CustomModal = dynamic(() => import("../global/custom-modal"), { ssr: false });
 const AuthenticationForm = dynamic(() => import("../forms/authentication-form"), { ssr: false });
 
 const InfoRight = () => {
     const { setOpen } = useModal();
+    const router = useRouter();
+
+    const handleForwardPageLogin = () => {
+        router.push(`/account/login`);
+    };
     return (
         <>
-            <Button variant={"ghost"} className="bg-transparent p-[7.5px_15px] h-auto text-current hover:bg-transparent hover:text-current duration-0">
+            <Button onClick={handleForwardPageLogin} variant={"ghost"} className="bg-transparent p-[7.5px_15px] h-auto text-current hover:bg-transparent hover:text-current duration-0">
                 <UserIcon size={28} />
             </Button>
             <Button
                 onClick={() => {
                     setOpen(
-                        <CustomModal className="w-[600px] p-0 gap-0 !rounded-none shadow-[0_5px_15px_rgba(0,0,0,.5)] !bg-transparent border-0">
+                        <CustomModal className="md:w-[600px] p-0 gap-0 !rounded-none shadow-[0_5px_15px_rgba(0,0,0,.5)] !bg-transparent border-0 !w-[80%] sm:!w-[70%]">
                             <AuthenticationForm />
                         </CustomModal>
                     );

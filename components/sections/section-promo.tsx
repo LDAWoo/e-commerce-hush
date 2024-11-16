@@ -7,12 +7,10 @@ const SectionPromo = () => {
     const listProduct = useMemo(() => promos, []);
     return (
         <div>
-            <div className="p-[75px_0px]">
-                <div className="flex -mt-[15px] -ml-[15px] pl-[15px] pr-[15px] flex-wrap justify-center text-center">
-                    {listProduct.map((product) => (
-                        <PromoItem item={product} key={product.id} />
-                    ))}
-                </div>
+            <div className="flex -mt-[15px] -ml-[15px] pl-[15px] pr-[15px] flex-wrap justify-center text-center">
+                {listProduct.map((product) => (
+                    <PromoItem item={product} key={product.id} />
+                ))}
             </div>
         </div>
     );

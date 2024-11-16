@@ -38,7 +38,7 @@ const payments = [
 
 const Payment = () => {
     return (
-        <ul className="text-center mt-[30px]">
+        <ul className="text-center mt-[15px] md:mt-[30px]">
             {payments.map((payment) => (
                 <li key={payment.name} aria-label={payment.name} className="inline-flex m-[0_4px]">
                     <payment.icon />

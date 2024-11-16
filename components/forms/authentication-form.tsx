@@ -64,34 +64,31 @@ const AuthenticationForm = () => {
                 </div>
 
                 <div aria-label="social-connect">
-                    <div aria-label="social-facebook" className="max-w-[56%] min-h-[44px] mt-5 w-full m-[10px_auto]">
+                    <div aria-label="social-facebook" className="max-w-[86%] sm:max-w-[56%] min-h-[44px] mt-5 w-full m-[10px_auto]">
                         <button className="flex justify-evenly items-center w-full bg-white transition border-2 border-[#1877f2] overflow-hidden text-[#1877f2] h-[40px]">
-                            <div>
-                                <FaFacebook size={26} />
-                            </div>
-
-                            <span className="text-[13px] p-[0_2px] w-[58%]">Continue with Facebook</span>
+                            <FaFacebook size={26} className="w-[30%] inline-block align-middle" />
+                            <span className="w-[70%] inline-block text-left align-middle text-[15px] p-[0_10px] whitespace-nowrap overflow-hidden text-ellipsis">Continue with Facebook</span>
                         </button>
                     </div>
 
-                    <div aria-label="social-twitter" className="max-w-[56%] min-h-[44px] mt-2 w-full m-[10px_auto]">
+                    <div aria-label="social-twitter" className="max-w-[86%] sm:max-w-[56%] min-h-[44px] mt-2 w-full m-[10px_auto]">
                         <button className="block w-full bg-black hover:bg-[#1a1a1a] transition text-white h-[40px]">
                             <FaXTwitter size={18} className="w-[30%] inline-block align-middle" />
-                            <span className="w-[70%] inline-block text-left align-middle text-[15px] p-[0_10px]">Twitter</span>
+                            <span className="w-[70%] inline-block text-left align-middle text-[15px] p-[0_10px] whitespace-nowrap overflow-hidden text-ellipsis">Twitter</span>
                         </button>
                     </div>
 
-                    <div aria-label="social-google" className="max-w-[56%] min-h-[44px] mt-2 w-full m-[10px_auto]">
+                    <div aria-label="social-google" className="max-w-[86%] sm:max-w-[56%] min-h-[44px] mt-2 w-full m-[10px_auto]">
                         <button onClick={handleAuthGoogle} className="block w-full bg-white shadow-[0_2px_4px_0_rgba(0,0,0,.25)] hover:shadow-[0_0_3px_3px_rgba(66,133,244,.3)] transition text-black h-[40px]">
                             <FcGoogle size={18} className="w-[30%] inline-block align-middle" />
-                            <span className="w-[70%] inline-block text-left align-middle text-[15px] p-[0_10px]">Google</span>
+                            <span className="w-[70%] inline-block text-left align-middle text-[15px] p-[0_10px] whitespace-nowrap overflow-hidden text-ellipsis">Google</span>
                         </button>
                     </div>
                 </div>
 
                 <div>
                     <Form {...form}>
-                        <form className="m-auto w-[56%] space-y-3" onSubmit={form.handleSubmit(onSubmit)}>
+                        <form className="m-auto w-[86%] sm:w-[56%] space-y-3" onSubmit={form.handleSubmit(onSubmit)}>
                             <FormField
                                 name="email"
                                 control={form.control}
@@ -126,7 +123,7 @@ const AuthenticationForm = () => {
                             </div>
                         </form>
                     </Form>
-                    <div className="w-[56%] m-auto text-right mt-2">
+                    <div className="w-[86%] sm:w-[56%] m-auto text-right mt-2">
                         <Link href={`/account/login`} className="text-[15px]">
                             Forgot Password?
                         </Link>

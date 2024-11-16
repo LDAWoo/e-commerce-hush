@@ -18,7 +18,7 @@ const CustomModal: React.FC<CustomModalProps> = ({ title, description, className
 
     return (
         <Dialog open={isOpen || defaultOpen} onOpenChange={setClose}>
-            <DialogContent className={cn("overflow-auto md:max-h-[700px] md:h-fit h-screen bg-card", className)}>
+            <DialogContent className={cn("overflow-auto md:max-h-[700px] md:h-fit  bg-card", className)}>
                 {title && (
                     <DialogHeader className="pt-8 text-left">
                         <DialogTitle className="text-2xl font-bold">{title}</DialogTitle>
