@@ -7,6 +7,7 @@ const Navigation = dynamic(() => import("@/components/navigation"), { ssr: false
 const SectionAnnouncement = dynamic(() => import("@/components/sections/section-announcement"), { ssr: false });
 const WishList = dynamic(() => import("@/components/global/wishlist"), { ssr: false });
 const Footer = dynamic(() => import("@/components/footer"), { ssr: false });
+const Chatbot = dynamic(() => import("@/components/chatbot"), { ssr: false });
 
 const Layout = ({ children }: ChildrenProps) => {
     return (
@@ -18,6 +19,7 @@ const Layout = ({ children }: ChildrenProps) => {
             <div className="ml-auto mr-auto p-[40px_17px] md:p-[75px_40px] w-full max-w-[450px]">{children}</div>
             <WishList />
             <Footer />
+            <Chatbot />
         </div>
     );
 };

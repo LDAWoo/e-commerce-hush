@@ -94,7 +94,7 @@ const Navigation = () => {
                     <NavigationContent className="w-full">
                         <div className="flex flex-wrap w-full p-[39px_50px]">
                             {components.map((component) => (
-                                <div key={component.title} className="flex pl-[22px] w-[25%] text-black p-[8px_15px] text-[17px] uppercase">
+                                <div key={component.title} className="flex pl-[22px] w-[25%] p-[8px_15px] text-[17px] uppercase">
                                     <Link href={`/collections${component.href}`}>{component.title}</Link>
                                 </div>
                             ))}

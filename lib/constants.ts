@@ -277,3 +277,186 @@ export const languages = [
         translationKey: "languages.spanish",
     },
 ];
+
+export const messages = [
+    {
+        message: {
+            id: "0193346c-cbe6-7ad9-97ad-721fff21de0a",
+            type: "text",
+            automated: true,
+            sender_id: "shopify_chat_faq",
+            sent_at: "2024-11-16T10:02:45.589000Z",
+            sender: {
+                group: "team",
+                avatar: null,
+                name: "Online store chat",
+            },
+            content: {
+                text: "We ship all orders within 24-48 hours. Shipping times kick in when your order item(s) have left our distribution centers. Please allow for up to 1-3 business days for processing at our distribution center before your order is shipped. We have both Canadian and US fulfillment centers to better serve you.",
+            },
+            origin: "storefront_automated",
+        },
+    },
+    {
+        message: {
+            id: "0193346c-ca5c-7f01-82ef-c915493ce416",
+            type: "text",
+            automated: true,
+            sender_id: "01931f4f-6e54-765c-a97a-7f0989a428dd",
+            sent_at: "2024-11-16T10:02:45.204000Z",
+            sender: {
+                group: "customer",
+                avatar: null,
+                name: "Lee Vu",
+            },
+            content: {
+                text: "What is your shipping policy?",
+            },
+            origin: "storefront_automated",
+        },
+    },
+    {
+        message: {
+            id: "0193346c-99e0-71e4-81ac-4c3d84d58ef7",
+            type: "text",
+            automated: true,
+            sender_id: "shopify_chat_faq",
+            sent_at: "2024-11-16T10:02:32.784000Z",
+            sender: {
+                group: "team",
+                avatar: null,
+                name: "Online store chat",
+            },
+            content: {
+                text: "Our terry robes are available in sizes ranging from XS to XL. Please refer to the size chart on our website for specific measurements.",
+            },
+            origin: "storefront_automated",
+        },
+    },
+    {
+        message: {
+            id: "0193346c-96eb-75a3-94f5-862c9f5dcba7",
+            type: "text",
+            automated: true,
+            sender_id: "01931f4f-6e54-765c-a97a-7f0989a428dd",
+            sent_at: "2024-11-16T10:02:32.034000Z",
+            sender: {
+                group: "customer",
+                avatar: null,
+                name: "Lee Vu",
+            },
+            content: {
+                text: "What sizes are available for the terry robes?",
+            },
+            origin: "storefront_automated",
+        },
+    },
+    {
+        message: {
+            id: "0193346c-3ab3-7301-b523-9fef5ee01652",
+            type: "text",
+            automated: true,
+            sender_id: "shopify_chat_order_lookup",
+            sent_at: "2024-11-16T10:02:08.391000Z",
+            sender: {
+                group: "team",
+                avatar: null,
+                name: "Online store chat",
+            },
+            content: {
+                text: "To see your order status, please provide your order details.",
+            },
+            origin: "storefront_automated",
+        },
+    },
+    {
+        message: {
+            id: "0193346c-3794-7fdd-9172-1412363f6a4f",
+            type: "text",
+            automated: true,
+            sender_id: "01931f4f-6e54-765c-a97a-7f0989a428dd",
+            sent_at: "2024-11-16T10:02:07.626000Z",
+            sender: {
+                group: "customer",
+                avatar: null,
+                name: "Lee Vu",
+            },
+            content: {
+                text: "Track my order",
+            },
+            origin: "storefront_automated",
+        },
+    },
+    {
+        message: {
+            id: "0193343c-d258-7a08-9da7-ac8059267782",
+            type: "text",
+            automated: false,
+            sender_id: "01931f4f-6e54-765c-a97a-7f0989a428dd",
+            sent_at: "2024-11-16T09:10:21.514000Z",
+            sender: {
+                group: "customer",
+                avatar: null,
+                name: "Lee Vu",
+            },
+            content: {
+                text: "What is your shipping policy?",
+            },
+            origin: "storefront",
+        },
+    },
+    {
+        message: {
+            id: "0193343b-444f-77b8-84a0-6dc0617ca56a",
+            type: "text",
+            automated: false,
+            sender_id: "01931f4f-6e54-765c-a97a-7f0989a428dd",
+            sent_at: "2024-11-16T09:08:39.619000Z",
+            sender: {
+                group: "customer",
+                avatar: null,
+                name: "Lee Vu",
+            },
+            content: {
+                text: "What is your shipping policy?",
+            },
+            origin: "storefront",
+        },
+    },
+    {
+        message: {
+            id: "0193343a-7f90-7ef8-93c7-a480559b4adb",
+            type: "text",
+            automated: false,
+            sender_id: "01931f4f-6e54-765c-a97a-7f0989a428dd",
+            sent_at: "2024-11-16T09:07:49.252000Z",
+            sender: {
+                group: "customer",
+                avatar: null,
+                name: "Lee Vu",
+            },
+            content: {
+                text: "product red",
+            },
+            origin: "storefront",
+        },
+    },
+    {
+        message: {
+            id: "019333e2-5498-7115-bcf3-305ff9c3c2ea",
+            type: "text",
+            automated: true,
+            sender_id: "Away-513247",
+            sent_at: "2024-11-16T08:23:00.008454Z",
+            sender: {
+                group: "team",
+                avatar: null,
+                name: "Away message",
+            },
+            content: {
+                text: "Hi, \nWe’re not currently online. So please leave any info that will help us best assist you later, or email us at info@thehushshop.com.\nWe'll respond as soon as we can via the contact information you provided.\n\nThank you,\nTheHushShop Customer Service Team",
+            },
+            origin: null,
+        },
+    },
+];

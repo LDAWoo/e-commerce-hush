@@ -5,7 +5,7 @@ import Collections from "./_components/collections";
 
 const Page = () => {
     return (
-        <div className="flex flex-col items-center h-full pt-[40px] md:pt-[75px]">
+        <div className="flex flex-col items-center h-full">
             <CollectionsBreadcrumb />
             <CollectionsHeader />
             <Collections />

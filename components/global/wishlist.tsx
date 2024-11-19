@@ -43,7 +43,7 @@ const WishList = () => {
                         </div>
                     </div>
 
-                    <button type="button" disabled={isLoading} className="bg-transparent text-foreground shadow-[0_0_0_1px_#1d2939] text-[14px] leading-[1em] p-[.75em_1.125em] rounded-full flex gap-1 items-center justify-center relative overflow-hidden cursor-pointer font-medium w-full">
+                    <button type="button" disabled={isLoading} className="bg-transparent text-foreground shadow-[0_0_0_1px_#1d2939] dark:shadow-[0_0_0_1px_#252627] text-[14px] leading-[1em] p-[.75em_1.125em] rounded-full flex gap-1 items-center justify-center relative overflow-hidden cursor-pointer font-medium w-full">
                         <div
                             className={cn("hidden w-full h-full bg-[rgba(157,157,157,.7)] absolute left-0 right-0", {
                                 flex: isLoading,

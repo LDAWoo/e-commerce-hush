@@ -52,7 +52,7 @@ const MenuPup = () => {
                         <ul className="text-[15px] text-center md:text-left">
                             {["Our Brands", "Size Charts", "Shopping & Returns", "Track Your Order", "Gift Cards", "Privacy Policy", "Wholesale Inquiries", "Contact Us"].map((item, index) => (
                                 <li key={index}>
-                                    <Link href={`/pages/${item.toLowerCase().replace(/ /g, "-")}`} className="p-[4px_0] leading-[30px]">
+                                    <Link href={`/pages/${item.toLowerCase().replace(/ /g, "-")}`} className="text-muted-foreground hover:text-foreground p-[4px_0] leading-[30px]">
                                         {item}
                                     </Link>
                                 </li>
@@ -74,7 +74,7 @@ const MenuPup = () => {
                         <ul className="text-[15px] text-center md:text-left">
                             {["Baby Boy", "Baby Girl", "Boy", "Girl", "Teen", "Ladies", "Our Brands", "Sale"].map((item, index) => (
                                 <li key={index}>
-                                    <Link href={`/collections/${item.toLowerCase().replace(/ /g, "-")}`} className="p-[4px_0] leading-[30px]">
+                                    <Link href={`/collections/${item.toLowerCase().replace(/ /g, "-")}`} className="text-muted-foreground hover:text-foreground p-[4px_0] leading-[30px]">
                                         {item}
                                     </Link>
                                 </li>
@@ -93,7 +93,7 @@ const MenuPup = () => {
                         <ArrowDownIcon id="arrow" size={10} className="md:hidden absolute top-1/2 right-1 -translate-y-1/2 transition-transform duration-200" />
                     </AccordionTrigger>
                     <AccordionContent>
-                        <p className="text-center md:text-left mb-[15px] text-[calc(var(--type-base-size)_*_.85)]">{t("LBL_SUBSCRIBE")}</p>
+                        <p className="text-center text-muted-foreground md:text-left mb-[15px] text-[calc(var(--type-base-size)_*_.85)]">{t("LBL_SUBSCRIBE")}</p>
                     </AccordionContent>
                 </AccordionItem>
 

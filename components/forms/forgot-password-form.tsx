@@ -34,7 +34,7 @@ const ForgotPasswordForm = () => {
             <Form {...form}>
                 <form className="m-auto w-full space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
                     {hasErrors && (
-                        <div className="p-[6px_12px] bg-[#fff6f6] border border-[#d02e2e] text-[#d02e2e] text-[calc(var(--type-base-size))]">
+                        <div className="p-[6px_12px] bg-destructive border border-destructive-foreground text-destructive-foreground text-[calc(var(--type-base-size))]">
                             <ul className="list-disc ml-5">
                                 {form.getValues("email").length === 0 && <li>{t("LBL_EMAIL_CANT_BE_BLANK")}</li>}
                                 {form.getValues("email").length > 0 && !form.getValues("email").match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/) && <li>{t("LBL_INVALID_EMAIL")}</li>}
@@ -51,8 +51,8 @@ const ForgotPasswordForm = () => {
                                     <Input
                                         {...field}
                                         autoComplete="off"
-                                        className={cn("text-[calc(var(--type-base-size))] placeholder:text-[calc(var(--type-base-size))] placeholder:opacity-80 border-accent-foreground p-[8px_16px] focus-visible:ring-offset-0 focus-visible:ring-0 focus-visible:shadow-none outline-none rounded-none h-[42px] border-[#c0c0c0]", {
-                                            "bg-[#fff6f6] border border-[#d02e2e] text-[#d02e2e] focus-visible:shadow-transparent": form.formState.errors[field.name],
+                                        className={cn("text-[calc(var(--type-base-size))] placeholder:text-[calc(var(--type-base-size))] placeholder:opacity-80 border-[#c0c0c0] dark:border-input p-[8px_16px] focus-visible:ring-offset-0 focus-visible:ring-0 focus-visible:shadow-none outline-none rounded-none h-[42px]", {
+                                            "bg-destructive border border-destructive-foreground text-destructive-foreground focus-visible:shadow-transparent": form.formState.errors[field.name],
                                         })}
                                     />
                                 </FormControl>

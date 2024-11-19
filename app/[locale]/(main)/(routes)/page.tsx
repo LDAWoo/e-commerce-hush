@@ -10,6 +10,7 @@ const SectionFeatures = dynamic(() => import("@/components/sections/section-feat
 const SectionNewArrival = dynamic(() => import("@/components/sections/section-new-arrival"), { ssr: false });
 const SectionPromo = dynamic(() => import("@/components/sections/section-promo"), { ssr: false });
 const Navigation = dynamic(() => import("@/components/navigation"), { ssr: false });
+const Chatbot = dynamic(() => import("@/components/chatbot"), { ssr: false });
 
 const Page = () => {
     const user = currentUser();
@@ -26,6 +27,7 @@ const Page = () => {
             <SectionNewArrival />
             <Footer />
             <WishList />
+            <Chatbot />
         </div>
     );
 };

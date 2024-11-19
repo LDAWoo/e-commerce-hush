@@ -20,7 +20,7 @@ export default async function BaseLayout({ children, locale }: Props) {
     const messages = await getMessages();
 
     return (
-        <html lang={locale} suppressContentEditableWarning>
+        <html lang={locale} suppressHydrationWarning>
             <body>
                 <NextIntlClientProvider messages={messages}>
                     <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>

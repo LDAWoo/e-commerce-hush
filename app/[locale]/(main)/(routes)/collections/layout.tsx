@@ -13,7 +13,7 @@ const Layout = ({ children }: ChildrenProps) => {
             <Header className="bg-background !text-accent-foreground">
                 <Navigation />
             </Header>
-            <div className="mt-[200px] mb-[40px] border-t ml-auto mr-auto p-[0_17px] md:p-[0_40px] w-full max-w-[var(--page-max-width)]">{children}</div>
+            <div className="ml-auto mr-auto p-[40px_17px] md:p-[75px_40px] w-full max-w-[var(--page-max-width)]">{children}</div>
             <WishList />
             <Footer />
         </div>

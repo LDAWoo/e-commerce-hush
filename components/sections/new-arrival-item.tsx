@@ -27,7 +27,7 @@ const NewArrivalItem = ({ item }: NewArrivalItemProps) => {
                     <div className="pt-[10px] pb-[6px] text-center">
                         <div className="text-[16px] uppercase tracking-[.2rem]">{item.name}</div>
                         <div className="text-[.8em] uppercase tracking-[.3rem] opacity-65 mt-[5px]">Vendor</div>
-                        <div className="text-[#1c1d1d] text-[15px] leading-[1.3] mt-[5px]">{item.price}₫</div>
+                        <div className="text-muted-foreground text-[15px] leading-[1.3] mt-[5px]">{item.price}₫</div>
                     </div>
                 </Link>
             </div>

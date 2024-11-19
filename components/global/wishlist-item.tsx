@@ -19,7 +19,7 @@ type WishListItemProps = {
     isLoading: boolean;
 };
 
-const WishListItem = ({ isLoading = false }) => {
+const WishListItem = ({ isLoading = true }) => {
     const inputRef = React.useRef<HTMLInputElement | null>(null);
     const [isCollapsible, setIsCollapsible] = React.useState(false);
     const [isDeleted, setIsDeleted] = React.useState(false);
@@ -70,8 +70,8 @@ const WishListItem = ({ isLoading = false }) => {
                     )}
                 </div>
                 <div
-                    className={cn("h-[1px] w-full bg-[#e6e8ec]", {
-                        "bg-[var(--gw-wishlist-heart-foreground)]": isDeleted,
+                    className={cn("h-[1px] w-full bg-[#e6e8ec] dark:bg-foreground/30", {
+                        "bg-[var(--gw-wishlist-heart-foreground)] dark:bg-[var(--gw-wishlist-heart-foreground)]": isDeleted,
                     })}
                 />
                 <button onClick={() => setIsDeleted(!isDeleted)} type="button" className="min-w-[22px] w-[22px] h-[22px] flex bg-transparent rounded-[3px] items-center justify-center hover:bg-accent text-[var(--gw-wishlist-heart-foreground)]">
@@ -88,14 +88,14 @@ const WishListItem = ({ isLoading = false }) => {
                         <div className="mb-2 text-[var(--gw-wishlist-heart-background)]">
                             <HeartIcon size={60} />
                         </div>
-                        <div className="text-[12px] leading-[16px] text-[#979faf] text-center">Nothing added to wishlist.</div>
+                        <div className="text-[12px] leading-[16px] text-[#979faf] dark:text-muted-foreground text-center">Nothing added to wishlist.</div>
                         <Link href={`/collections/all`} className="text-[18px] underline leading-[24px] text-[var(--gw-wishlist-heart-background)]">
                             Browse products
                         </Link>
                     </div>
                 </ul>
                 <div
-                    className={cn("absolute top-0 left-0 w-full z-10 duration-300 p-[16px_0] opacity-0 invisible translate-y-10 shadow-[0_0_10px_10px_#fff] bg-white", {
+                    className={cn("absolute top-0 left-0 w-full z-10 duration-300 p-[16px_0] opacity-0 invisible translate-y-10 shadow-[0_0_10px_10px_#fff] dark:shadow-[0_0_10px_10px_#000] bg-background", {
                         "opacity-100 visible translate-y-0": isDeleted,
                     })}
                 >

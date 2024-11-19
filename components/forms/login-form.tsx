@@ -43,7 +43,7 @@ const LoginForm = () => {
             <Form {...form}>
                 <form className="m-auto w-full space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
                     {hasErrors && (
-                        <div className="p-[6px_12px] bg-[#fff6f6] border border-[#d02e2e] text-[#d02e2e] text-[calc(var(--type-base-size))]">
+                        <div className="p-[6px_12px] bg-destructive border border-destructive-foreground text-destructive-foreground text-[calc(var(--type-base-size))]">
                             <ul className="list-disc ml-5">
                                 <li>{t("LBL_INCORRECT_EMAIL_OR_PASSWORD")}</li>
                             </ul>
@@ -57,7 +57,7 @@ const LoginForm = () => {
                             <FormItem>
                                 <FormLabel className="!text-foreground block cursor-pointer uppercase text-[calc(var(--type-base-size)-4px)] tracking-[.3em] font-normal">{t("LBL_EMAIL")}</FormLabel>
                                 <FormControl>
-                                    <Input {...field} autoComplete="off" className="text-[calc(var(--type-base-size))] placeholder:text-[calc(var(--type-base-size))] placeholder:opacity-80 border-accent-foreground p-[8px_16px] focus-visible:ring-offset-0 focus-visible:ring-0 focus-visible:shadow-none outline-none rounded-none h-[42px] border-[#c0c0c0]" />
+                                    <Input {...field} autoComplete="off" className="text-[calc(var(--type-base-size))] placeholder:text-[calc(var(--type-base-size))] placeholder:opacity-80 border-[#c0c0c0] dark:border-input p-[8px_16px] focus-visible:ring-offset-0 focus-visible:ring-0 focus-visible:shadow-none outline-none rounded-none h-[42px]" />
                                 </FormControl>
                             </FormItem>
                         )}
@@ -74,7 +74,7 @@ const LoginForm = () => {
                                     </Link>
                                 </div>
                                 <FormControl>
-                                    <Input {...field} autoComplete="off" className="text-[calc(var(--type-base-size))] placeholder:text-[calc(var(--type-base-size))] placeholder:opacity-80 border-accent-foreground p-[8px_16px] focus-visible:ring-offset-0 focus-visible:ring-0 focus-visible:shadow-none outline-none rounded-none h-[42px] border-[#c0c0c0]" />
+                                    <Input {...field} autoComplete="off" className="text-[calc(var(--type-base-size))] placeholder:text-[calc(var(--type-base-size))] placeholder:opacity-80 border-[#c0c0c0] dark:border-input p-[8px_16px] focus-visible:ring-offset-0 focus-visible:ring-0 focus-visible:shadow-none outline-none rounded-none h-[42px]" />
                                 </FormControl>
                             </FormItem>
                         )}
@@ -98,21 +98,26 @@ const LoginForm = () => {
 
             <div aria-label="social-connect">
                 <div aria-label="social-facebook" className="min-h-[44px] mt-2 w-full m-[12px_auto]">
-                    <button className="flex justify-evenly items-center w-full bg-white transition border-2 border-[#1877f2] overflow-hidden text-[#1877f2] h-[40px]">
-                        <FaFacebook size={26} className="w-[30%] inline-block align-middle" />
-                        <span className="w-[70%] inline-block text-left align-middle text-[calc(var(--type-base-size))] p-[0_10px] whitespace-nowrap overflow-hidden text-ellipsis">Continue with Facebook</span>
+                    <button className="block w-full bg-background border border-input hover:bg-background transition-all hover:border-b-4 hover:border-primary/30 hover:text-accent-foreground h-[40px]">
+                        <div className="w-[30%] inline-block align-middle">
+                            <div className="flex items-center justify-center w-full relative">
+                                <div className="w-[25px] h-[25px] absolute bg-white rounded-full overflow-hidden -z-1" />
+                                <FaFacebook size={26} className="text-[#1877f2] absolute z-0" />
+                            </div>
+                        </div>
+                        <span className="w-[70%] inline-block text-left align-middle text-[calc(var(--type-base-size))] p-[0_10px] whitespace-nowrap overflow-hidden text-ellipsis">Facebook</span>
                     </button>
                 </div>
 
                 <div aria-label="social-twitter" className=" min-h-[44px] mt-2 w-full m-[12px_auto]">
-                    <button className="block w-full bg-black hover:bg-[#1a1a1a] transition text-white h-[40px]">
+                    <button className="block w-full bg-background border border-input hover:bg-background transition-all hover:border-b-4 hover:border-primary/30 hover:text-accent-foreground h-[40px]">
                         <FaXTwitter size={26} className="w-[30%] inline-block align-middle" />
                         <span className="w-[70%] inline-block text-left align-middle text-[calc(var(--type-base-size))] p-[0_10px] whitespace-nowrap overflow-hidden text-ellipsis">Twitter</span>
                     </button>
                 </div>
 
                 <div aria-label="social-google" className=" min-h-[44px] mt-2 w-full m-[12px_auto]">
-                    <button onClick={handleAuthGoogle} className="block w-full bg-white shadow-[0_2px_4px_0_rgba(0,0,0,.25)] hover:shadow-[0_0_3px_3px_rgba(66,133,244,.3)] transition text-black h-[40px]">
+                    <button onClick={handleAuthGoogle} className="block w-full bg-background border border-input hover:bg-background transition-all hover:border-b-4 hover:border-primary/30 hover:text-accent-foreground h-[40px]">
                         <FcGoogle size={26} className="w-[30%] inline-block align-middle" />
                         <span className="w-[70%] inline-block text-left align-middle text-[calc(var(--type-base-size))] p-[0_10px] whitespace-nowrap overflow-hidden text-ellipsis">Google</span>
                     </button>

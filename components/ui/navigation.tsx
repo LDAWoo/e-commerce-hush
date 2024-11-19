@@ -49,7 +49,7 @@ const NavigationTrigger = ({ children, className, durations = 0.5, ...props }: N
             <div className="relative tracking-[.2rem] text-[16px] uppercase">
                 {children}
                 <div
-                    className="absolute h-[2px] w-full -bottom-1 left-0 bg-black"
+                    className="absolute h-[2px] w-full -bottom-1 left-0 bg-foreground"
                     style={{
                         width: open ? "100%" : "0%",
                         transition: `width ${durations}s ease-in-out`,
@@ -97,7 +97,7 @@ const NavigationContent = ({ children, side, align, defaultOpen = false, classNa
     }, [defaultOpen]);
 
     return (
-        <div data-state={open} className={cn(NavigationContentVariants({ align, side }), className, open ? "animate-slide-down" : "animate-slide-up")} onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+        <div data-state={open} className={cn(NavigationContentVariants({ align, side }), "shadow-container", className, open ? "animate-slide-down" : "animate-slide-up")} onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
             {children}
         </div>
     );

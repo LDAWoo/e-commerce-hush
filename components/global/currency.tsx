@@ -62,7 +62,7 @@ const Currency = ({ side = "top", align = "start" }: CurrencyProps) => {
 
             <ul
                 className={cn(
-                    "absolute p-[10px_0] bg-background text-foreground shadow-[0_0_20px_#00000017] w-[285px] max-h-[60vh] min-h-[92px] overflow-x-auto z-[9999]",
+                    "absolute p-[10px_0] bg-background text-foreground shadow-[0_0_20px_#00000017] dark:shadow-[0_0_20px_#ffffff17] w-[285px] max-h-[60vh] min-h-[92px] overflow-x-auto z-[9999]",
                     {
                         hidden: !open,
                     },

@@ -47,7 +47,7 @@ const Header = ({ children, className }: HeaderProps) => {
         <div className="relative z-[10]">
             <div
                 className={cn("absolute top-0 left-0 right-0 z-10 text-foreground", {
-                    "bg-gradient-to-b from-[#0000004d] to-[#0000] text-white": isHomePage,
+                    "bg-gradient-to-b from-[#0000004d] to-[#0000] ": isHomePage,
                 })}
             />
             <Toolbar />
@@ -55,9 +55,12 @@ const Header = ({ children, className }: HeaderProps) => {
                 <header
                     ref={containerHeaderRef}
                     className={cn(
-                        "p-[7px_0] md:p-[20px_0] relative text-white",
+                        "p-[7px_0] md:p-[20px_0] relative text-foreground",
                         {
-                            "!fixed top-0 left-0 right-0 bg-white text-black animate-transform-up z-[10000] border-b": isScrolled,
+                            "text-white": isHomePage,
+                        },
+                        {
+                            "!fixed top-0 left-0 right-0 bg-background text-foreground animate-transform-up z-[10000] border-b": isScrolled,
                         },
                         className
                     )}
