@@ -8,6 +8,9 @@ import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { useRouter } from "@/i18n/routing";
 import ThemeToggler from "../global/theme-toggle";
+import CartItem from "../cart/cart-item";
+import { Label } from "../ui/label";
+import { Textarea } from "../ui/textarea";
 
 const CustomModal = dynamic(() => import("../global/custom-modal"), { ssr: false });
 const AuthenticationForm = dynamic(() => import("../forms/authentication-form"), { ssr: false });
@@ -44,33 +47,41 @@ const InfoRight = () => {
                     <CartIcon size={28} />
                 </SheetTrigger>
                 <SheetContent
-                    className="p-[0_30px] h-full"
+                    className="p-0 h-full min-w-[490px]"
                     options={{
-                        classClosedContent: "top-12",
+                        classClosedContent: "top-6",
                         classClosed: "h-7 w-7",
                     }}
                 >
-                    <SheetHeader className="p-[12px_0] h-[120px] flex justify-center">
-                        <SheetTitle className="text-3xl uppercase font-normal">Cart</SheetTitle>
-                    </SheetHeader>
-                    <div className="flex flex-col">
-                        <div className="flex pt-[15px] pb-0"></div>
-                    </div>
-                    <SheetFooter>
-                        <div className="flex flex-col gap-[10px]">
-                            <div className="flex flex-row justify-between items-center]">
-                                <p className="uppercase text-sm tracking-[.3rem]">Subtotal</p>
-                                <p className="text-[13.6px] ">$89.95</p>
+                    <div className="flex flex-col h-full">
+                        <div className="p-[12px_30px] h-[80px] flex justify-start items-center">
+                            <div className="text-3xl uppercase font-normal">
+                                <h3 className="text-3xl">Cart</h3>
                             </div>
-
-                            <p className="text-[13.6px] opacity-80">Shipping, taxes, and discount codes calculated at checkout.</p>
-
-                            <Button className="bg-[#5A31f4]">Shop</Button>
-
-                            <div></div>
-                            <Button className=" uppercase">CHECK OUT</Button>
                         </div>
-                    </SheetFooter>
+                        <div className="flex flex-col flex-1 overflow-y-auto p-[30px] pb-0">
+                            <div>
+                                <CartItem />
+                            </div>
+                            <div>
+                                <Label className="text-[calc(var(--type-base-size)-3px)] text-foreground tracking-[.3em] uppercase mb-[10px] block ">Order note</Label>
+                                <Textarea className="text-[calc(var(--type-base-size)-2px)] p-[8px_10px] focus-visible:ring-offset-0 focus-visible:ring-0 duration-300 focus-visible:shadow-shadow-border-sm rounded-[4px]" />
+                            </div>
+                        </div>
+                        <div className="flex-grow-0 p-[0_30px] pt-[22px] pb-[30px]">
+                            <div className="flex flex-col gap-[10px]">
+                                <div className="flex flex-row justify-between items-center">
+                                    <p className="uppercase text-sm tracking-[.3rem]">Subtotal</p>
+                                    <p className="text-[calc(var(--type-base-size)-4px)]">$89.95</p>
+                                </div>
+
+                                <p className="text-[calc(var(--type-base-size)-4px)] opacity-80">Shipping, taxes, and discount codes calculated at checkout.</p>
+
+                                <div></div>
+                                <Button className="uppercase rounded-none p-[11px_20px] text-[calc(var(--type-base-size)-4px)] tracking-[.3em]">CHECK OUT</Button>
+                            </div>
+                        </div>
+                    </div>
                 </SheetContent>
             </Sheet>
         </>
