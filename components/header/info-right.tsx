@@ -11,6 +11,9 @@ import ThemeToggler from "../global/theme-toggle";
 import CartItem from "../cart/cart-item";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
+import { GiButtonFinger } from "react-icons/gi";
+import { LogOutIcon } from "lucide-react";
+import { signOut } from "next-auth/react";
 
 const CustomModal = dynamic(() => import("../global/custom-modal"), { ssr: false });
 const AuthenticationForm = dynamic(() => import("../forms/authentication-form"), { ssr: false });
@@ -21,6 +24,12 @@ const InfoRight = () => {
 
     const handleForwardPageLogin = () => {
         router.push(`/account/login`);
+    };
+
+    const handleLogout = () => {
+        signOut({
+            callbackUrl: "/en/account/login",
+        });
     };
     return (
         <>
@@ -84,6 +93,10 @@ const InfoRight = () => {
                     </div>
                 </SheetContent>
             </Sheet>
+
+            <Button onClick={handleLogout} variant={"ghost"} className="hidden md:flex bg-transparent p-[7.5px_15px] h-auto text-current hover:bg-transparent hover:text-current duration-0">
+                <LogOutIcon size={28} />
+            </Button>
         </>
     );
 };

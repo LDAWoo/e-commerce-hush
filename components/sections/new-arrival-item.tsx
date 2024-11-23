@@ -36,4 +36,4 @@ const NewArrivalItem = ({ item }: NewArrivalItemProps) => {
     );
 };
 
-export default NewArrivalItem;
+export default React.memo(NewArrivalItem);

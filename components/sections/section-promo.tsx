@@ -1,6 +1,6 @@
 "use client";
 import { promos } from "@/lib/constants";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import PromoItem from "./promo-item";
 
 const SectionPromo = () => {
@@ -16,4 +16,4 @@ const SectionPromo = () => {
     );
 };
 
-export default SectionPromo;
+export default React.memo(SectionPromo);

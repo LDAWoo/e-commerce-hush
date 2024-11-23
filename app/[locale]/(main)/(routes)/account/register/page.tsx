@@ -1,9 +1,5 @@
-import dynamic from "next/dynamic";
+import RegisterForm from "@/components/forms/register-form";
 import { useTranslations } from "next-intl";
-
-const RegisterForm = dynamic(() => import("@/components/forms/register-form"), {
-    ssr: false,
-});
 
 const Page = () => {
     const t = useTranslations("PAGE_REGISTER");

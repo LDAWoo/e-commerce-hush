@@ -1,6 +1,5 @@
-import dynamic from "next/dynamic";
+import ForgotPasswordForm from "@/components/forms/forgot-password-form";
 import { useTranslations } from "next-intl";
-const ForgotPasswordForm = dynamic(() => import("@/components/forms/forgot-password-form"), { ssr: false });
 
 const Page = () => {
     const t = useTranslations("PAGE_FORGOT_PASSWORD");

@@ -15,7 +15,7 @@ import { signIn } from "next-auth/react";
 
 const formSchema = z.object({
     email: z.string().email(),
-    password: z.string().min(8, "Password must be at least 8 characters long"),
+    password: z.string().min(1, "Password must be at least 8 characters long"),
 });
 
 const LoginForm = () => {
@@ -30,7 +30,20 @@ const LoginForm = () => {
 
     const isLoading = form.formState.isSubmitting;
 
-    const onSubmit = () => {};
+    const onSubmit = async (values: z.infer<typeof formSchema>) => {
+        const res = await signIn("credentials", {
+            ...values,
+            redirect: false,
+        });
+
+        console.log(values);
+
+        if (res?.error) {
+            alert("Login failed: " + res.error);
+        } else {
+            alert("Login successful");
+        }
+    };
 
     const hasErrors = Object.keys(form.formState.errors).length > 0;
 
@@ -74,13 +87,13 @@ const LoginForm = () => {
                                     </Link>
                                 </div>
                                 <FormControl>
-                                    <Input {...field} autoComplete="off" className="text-[calc(var(--type-base-size))] placeholder:text-[calc(var(--type-base-size))] placeholder:opacity-80 border-[#c0c0c0] dark:border-input p-[8px_16px] focus-visible:ring-offset-0 focus-visible:ring-0 focus-visible:shadow-none outline-none rounded-none h-[42px]" />
+                                    <Input {...field} type="password" autoComplete="off" className="text-[calc(var(--type-base-size))] placeholder:text-[calc(var(--type-base-size))] placeholder:opacity-80 border-[#c0c0c0] dark:border-input p-[8px_16px] focus-visible:ring-offset-0 focus-visible:ring-0 focus-visible:shadow-none outline-none rounded-none h-[42px]" />
                                 </FormControl>
                             </FormItem>
                         )}
                     />
 
-                    <Button variant={"default"} className="rounded-none p-[13px_20px] h-fit min-w-[90px] w-full uppercase text-[calc(var(--type-base-size)-2px)] tracking-[.3em]">
+                    <Button disabled={isLoading} variant={"default"} className="rounded-none p-[13px_20px] h-fit min-w-[90px] w-full uppercase text-[calc(var(--type-base-size)-2px)] tracking-[.3em]">
                         {t("LBL_SIGN_IN")}
                     </Button>
 

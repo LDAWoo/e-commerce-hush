@@ -8,7 +8,7 @@ const WishList = dynamic(() => import("@/components/global/wishlist"), { ssr: fa
 const Footer = dynamic(() => import("@/components/footer"), { ssr: false });
 const Chatbot = dynamic(() => import("@/components/chatbot"), { ssr: false });
 
-const Layout = ({ children }: ChildrenProps) => {
+const Layout = async ({ children }: ChildrenProps) => {
     return (
         <div className="flex flex-col min-h-screen bg-background">
             <Header className="bg-background !text-accent-foreground">

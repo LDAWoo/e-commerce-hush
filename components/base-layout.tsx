@@ -1,7 +1,6 @@
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { routing } from "@/i18n/routing";
-import { ModalProvider } from "@/provider/modal-provider";
 import { ThemeProvider } from "@/provider/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -24,11 +23,9 @@ export default async function BaseLayout({ children, locale }: Props) {
             <body>
                 <NextIntlClientProvider messages={messages}>
                     <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-                        <ModalProvider>
-                            {children}
-                            <Sonner />
-                            <Toaster />
-                        </ModalProvider>
+                        {children}
+                        <Sonner />
+                        <Toaster />
                     </ThemeProvider>
                 </NextIntlClientProvider>
             </body>

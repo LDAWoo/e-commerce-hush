@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic"; // For dynamic imports
-import { currentUser } from "@/lib/current-user";
 
 // Dynamically import components
 const Footer = dynamic(() => import("@/components/footer"), { ssr: false });
@@ -13,7 +12,6 @@ const Navigation = dynamic(() => import("@/components/navigation"), { ssr: false
 const Chatbot = dynamic(() => import("@/components/chatbot"), { ssr: false });
 
 const Page = () => {
-    const user = currentUser();
     return (
         <div className="relative h-screen bg-background">
             <div className="text-white">

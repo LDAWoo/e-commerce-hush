@@ -1,6 +1,5 @@
-import dynamic from "next/dynamic";
+import LoginForm from "@/components/forms/login-form";
 import { useTranslations } from "next-intl";
-const LoginForm = dynamic(() => import("@/components/forms/login-form"), { ssr: false });
 
 const Page = () => {
     const t = useTranslations("PAGE_LOGIN");
