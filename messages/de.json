@@ -1,0 +1,56 @@
+{
+    "LOCAL_LAYOUT": {
+        "LBL_TITLE": "Hush Tienda"
+    },
+    "PAGE_LOGIN": {
+        "LBL_TITLE": "Iniciar sesión",
+        "LBL_SIGN_IN_WITH_AUTH": "Inicia sesión con redes sociales",
+        "LBL_EMAIL": "Correo electrónico",
+        "LBL_PASSWORD": "Contraseña",
+        "LBL_FORGOT_PASSWORD": "¿Olvidaste tu contraseña?",
+        "LBL_CREATE_ACCOUNT": "Crear cuenta",
+        "LBL_SIGN_IN": "Iniciar sesión",
+        "LBL_INCORRECT_EMAIL_OR_PASSWORD": "Correo electrónico o contraseña incorrectos."
+    },
+    "PAGE_REGISTER": {
+        "LBL_TITLE": "Crear cuenta",
+        "LBL_FIRST_NAME": "Nombre",
+        "LBL_LAST_NAME": "Apellido",
+        "LBL_EMAIL": "Correo electrónico",
+        "LBL_EMAIL_CANT_BE_BLANK": "El correo electrónico no puede estar vacío.",
+        "LBL_INVALID_EMAIL": "Correo electrónico inválido",
+        "LBL_EMAIL_ALREADY_EXISTS": "El correo electrónico ya existe.",
+        "LBL_PASSWORD": "Contraseña",
+        "LBL_PASSWORD_TOO_SHORT": "La contraseña debe tener al menos 8 caracteres.",
+        "LBL_PASSWORD_CANT_BE_BLANK": "La contraseña no puede estar vacía.",
+        "LBL_SIGN_IN": "Iniciar sesión",
+        "LBL_ALREADY_HAVE_ACCOUNT": "¿Ya tienes una cuenta?",
+        "LBL_CREATE": "Crear"
+    },
+    "PAGE_FORGOT_PASSWORD": {
+        "LBL_TITLE": "Restablece tu contraseña",
+        "LBL_SUBTITLE": "Te enviaremos un correo electrónico para restablecer tu contraseña.",
+        "LBL_EMAIL": "Correo electrónico",
+        "LBL_EMAIL_CANT_BE_BLANK": "El correo electrónico no puede estar vacío.",
+        "LBL_INVALID_EMAIL": "Correo electrónico inválido.",
+        "LBL_EMAIL_NOT_FOUND": "No se encontró una cuenta con ese correo.",
+        "LBL_SEND_RESET_EMAIL": "Enviar correo de restablecimiento",
+        "LBL_RESET_EMAIL_SENT": "Correo de restablecimiento enviado con éxito. Revisa tu bandeja de entrada.",
+        "LBL_SUBMIT": "Enviar",
+        "LBL_BACK_TO_LOGIN": "Volver a iniciar sesión"
+    },
+    "PAGE_NOT_PAGE": {
+        "LBL_TITLE": "404 Página no encontrada",
+        "LBL_SUBTITLE": "La página que buscas no existe.",
+        "LBL_CONTINUE_HOME": "Continuar comprando"
+    },
+    "FOOTER": {
+        "LBL_HELP_AND_INFO": "Ayuda e información",
+        "LBL_MAIN_MENU": "Menú principal",
+        "LBL_SIGN_UP_AND_SAVE": "Regístrate y ahorra",
+        "LBL_SUBSCRIBE": "Suscríbete para obtener ofertas especiales, regalos y ofertas únicas.",
+        "LBL_TERMS_OF_SERVICE": "Términos de servicio",
+        "LBL_PRIVACY_POLICY": "Política de privacidad",
+        "LBL_COPYRIGHT": "Copyright © 2024 Hush.Shop - Todos los derechos reservados - Hush Shop es una marca registrada."
+    }
+}

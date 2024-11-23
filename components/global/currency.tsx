@@ -6,6 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import React from "react";
 import { ArrowDownIcon } from "../icons";
 import { useClickOutside } from "@/hooks/use-click-outside";
+import { useLocale } from "next-intl";
 
 type CurrencyProps = {
     side?: "left" | "right" | "top" | "bottom";
@@ -13,7 +14,7 @@ type CurrencyProps = {
 };
 const Currency = ({ side = "top", align = "start" }: CurrencyProps) => {
     const router = useRouter();
-    const { locale } = useParams<{ locale: string }>();
+    const locale = useLocale();
     const [open, setOpen] = React.useState(false);
     const ref = React.useRef<HTMLDivElement | null>(null);
 

@@ -2,65 +2,104 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 import pluralize from "pluralize";
 
-export async function POST(req: Request) {
-    try {
-        const { message } = await req.json();
+// Define types for the request entities
+type AmountOfMoney = {
+    op: "bw" | "eq" | "gt" | "lt";
+    amount: {
+        from?: number | null;
+        to?: number | null;
+    };
+};
 
-        const witResponse = await axios("https://api.wit.ai/message?v=20241116&q=" + message, {
-            method: "GET",
+type EntityTokenType = {
+    product_category?: {
+        op: "eq";
+        value: string;
+    };
+    product_color?: {
+        op: "eq";
+        value: string;
+    };
+    amount_of_money?: AmountOfMoney;
+};
+
+type WitEntity = {
+    value?: string;
+    from?: { value: number };
+    to?: { value: number };
+};
+
+type WitEntities = {
+    [key: string]: WitEntity[];
+};
+
+// Define the POST request handler
+export async function POST(req: Request): Promise<Response> {
+    try {
+        const { message }: { message: string } = await req.json();
+
+        const witResponse = await axios.get("https://api.wit.ai/message", {
+            params: { v: "20241116", q: message },
             headers: {
-                Authorization: `Bearer ${process.env.WIT_API_KEY}`, // Make sure to store the API key in an environment variable
+                Authorization: `Bearer ${process.env.WIT_API_KEY}`, // Store API key in environment variables
                 "Content-Type": "application/json",
             },
         });
 
-        const { entities } = witResponse.data;
-        const entityTokens = {};
-        let columns = "";
-        let expression = {};
-        let inquiry_type = "";
-        let distinctOp = null;
+        const { entities }: { entities: WitEntities } = witResponse.data;
 
-        Object.keys(entities).forEach(async (key) => {
+        const entityTokens: EntityTokenType = {};
+        let columns = "";
+        let expression: Record<string, any> = {};
+        let inquiry_type = "";
+        let distinctOp: string | null = null;
+
+        Object.keys(entities).forEach((key) => {
             const firstEntity = entities[key][0];
-            const token = key.split(":")[1];
+            const token = key.split(":")[1]; // Extract token name
             console.log(token);
-            // these are specific queries
+
             if (token === "product_category" || token === "product_color" || token === "amount_of_money") {
                 inquiry_type = "product_specific";
-
                 columns = "name price photo thumb quantity color";
 
-                // money is structured differently
                 if (token === "amount_of_money") {
-                    const from = firstEntity["from"] || null;
-                    const to = firstEntity["to"] || null;
+                    const from = firstEntity.from?.value || null;
+                    const to = firstEntity.to?.value || null;
 
                     if (from && to) {
-                        entityTokens[token] = { op: "bw", amount: { from: from.value, to: to.value } };
+                        entityTokens[token] = { op: "bw", amount: { from, to } };
                     } else if (from) {
-                        entityTokens[token] = { op: "gt", amount: { from: from.value } };
+                        entityTokens[token] = { op: "gt", amount: { from } };
                     } else if (to) {
-                        entityTokens[token] = { op: "lt", amount: { to: to.value } };
-                    } else {
+                        entityTokens[token] = { op: "lt", amount: { to } };
                     }
                 } else {
-                    entityTokens[token] = firstEntity.value || null;
+                    entityTokens[token] = {
+                        op: "eq",
+                        value: firstEntity.value || "",
+                    };
                 }
 
                 if (token === "product_category") {
-                    expression["category"] = { regex: pluralize.singular(entityTokens["product_category"]), options: "i" };
+                    expression["category"] = {
+                        regex: pluralize.singular(entityTokens.product_category?.value || ""),
+                        options: "i",
+                    };
                 }
 
                 if (token === "product_color") {
-                    expression["color"] = { regex: entityTokens["product_color"], options: "i" };
+                    expression["color"] = {
+                        regex: entityTokens.product_color?.value || "",
+                        options: "i",
+                    };
                 }
 
                 if (token === "amount_of_money") {
+                    const priceFilter = entityTokens.amount_of_money;
                     expression["price"] = {
-                        gt: ((entityTokens["amount_of_money"].op === "gt" || entityTokens["amount_of_money"].op === "bw") && entityTokens["amount_of_money"].amount.from) || 0,
-
-                        lt: (entityTokens["amount_of_money"].op === "lt" || entityTokens["amount_of_money"].op === "bw") && entityTokens["amount_of_money"].amount.to,
+                        gt: ((priceFilter?.op === "gt" || priceFilter?.op === "bw") && priceFilter?.amount.from) || 0,
+                        lt: (priceFilter?.op === "lt" || priceFilter?.op === "bw") && priceFilter?.amount.to,
                     };
                 }
             } else if (token === "product_inquiry") {
@@ -70,19 +109,16 @@ export async function POST(req: Request) {
             }
         });
 
-        // let products = [];
-        // if( distinctOp ) {
-        //     products = []
-        // } else {
-        //     products = []
-        // }
-
-        // send request to wit ai service
-        //const productsFound = products.length > 0 ? products : "Sorry, we don't have this specific product. Please try a different search."
-        const data = { parsed: entityTokens, data: [], inquiry_type: inquiry_type, raw: entities };
+        const data = {
+            parsed: entityTokens,
+            data: [], // Replace with actual data fetching logic
+            inquiry_type,
+            raw: entities,
+        };
 
         return NextResponse.json(data);
     } catch (error) {
-        console.log(error);
+        console.error("Error processing the request:", error);
+        return NextResponse.error();
     }
 }

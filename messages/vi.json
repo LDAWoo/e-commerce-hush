@@ -1,6 +1,43 @@
 {
     "LOCAL_LAYOUT": {
-        "LBL_TITLE": "Hush Shop"
+        "LBL_TITLE": "Hush Cửa Hàng"
+    },
+    "PAGE_LOGIN": {
+        "LBL_TITLE": "Đăng Nhập",
+        "LBL_SIGN_IN_WITH_AUTH": "Đăng nhập bằng mạng xã hội",
+        "LBL_EMAIL": "Email",
+        "LBL_PASSWORD": "Mật khẩu",
+        "LBL_FORGOT_PASSWORD": "Quên mật khẩu?",
+        "LBL_CREATE_ACCOUNT": "Tạo tài khoản",
+        "LBL_SIGN_IN": "Đăng nhập",
+        "LBL_INCORRECT_EMAIL_OR_PASSWORD": "Email hoặc mật khẩu không chính xác."
+    },
+    "PAGE_REGISTER": {
+        "LBL_TITLE": "Tạo tài khoản",
+        "LBL_FIRST_NAME": "Tên",
+        "LBL_LAST_NAME": "Họ",
+        "LBL_EMAIL": "Email",
+        "LBL_EMAIL_CANT_BE_BLANK": "Email không được để trống.",
+        "LBL_INVALID_EMAIL": "Email không hợp lệ.",
+        "LBL_EMAIL_ALREADY_EXISTS": "Email đã tồn tại.",
+        "LBL_PASSWORD": "Mật khẩu",
+        "LBL_PASSWORD_TOO_SHORT": "Mật khẩu phải có ít nhất 8 ký tự.",
+        "LBL_PASSWORD_CANT_BE_BLANK": "Mật khẩu không được để trống.",
+        "LBL_SIGN_IN": "Đăng nhập",
+        "LBL_ALREADY_HAVE_ACCOUNT": "Đã có tài khoản?",
+        "LBL_CREATE": "Tạo"
+    },
+    "PAGE_FORGOT_PASSWORD": {
+        "LBL_TITLE": "Đặt lại mật khẩu",
+        "LBL_SUBTITLE": "Chúng tôi sẽ gửi email để bạn đặt lại mật khẩu.",
+        "LBL_EMAIL": "Email",
+        "LBL_EMAIL_CANT_BE_BLANK": "Email không được để trống.",
+        "LBL_INVALID_EMAIL": "Email không hợp lệ.",
+        "LBL_EMAIL_NOT_FOUND": "Không tìm thấy tài khoản với email này.",
+        "LBL_SEND_RESET_EMAIL": "Gửi email đặt lại mật khẩu",
+        "LBL_RESET_EMAIL_SENT": "Email đặt lại mật khẩu đã được gửi thành công. Vui lòng kiểm tra hộp thư của bạn.",
+        "LBL_SUBMIT": "Gửi",
+        "LBL_BACK_TO_LOGIN": "Quay lại đăng nhập"
     },
     "PAGE_NOT_PAGE": {
         "LBL_TITLE": "404 Không tìm thấy trang",
@@ -8,12 +45,12 @@
         "LBL_CONTINUE_HOME": "Tiếp tục mua sắm"
     },
     "FOOTER": {
-        "LBL_HELP_AND_INFO": "Trợ Giúp & Thông Tin",
-        "LBL_MAIN_MENU": "Menu Chính",
-        "LBL_SIGN_UP_AND_SAVE": "Đăng ký và lưu",
-        "LBL_SUBSCRIBE": "Đăng ký để nhận ưu đãi đặc biệt, quà tặng miễn phí và những món hời hiếm có.",
-        "LBL_TERMS_OF_SERVICE": "Điều Khoản Dịch Vụ",
-        "LBL_PRIVACY_POLICY": "Chính Sách Bảo Mật",
-        "LBL_COPYRIGHT": "Bản quyền © 2024 Hush.Shop - Bảo Lưu Tất Cả Quyền - The Hush Shop là một thương hiệu đã được đăng ký."
+        "LBL_HELP_AND_INFO": "Trợ giúp và thông tin",
+        "LBL_MAIN_MENU": "Menu chính",
+        "LBL_SIGN_UP_AND_SAVE": "Đăng ký và tiết kiệm",
+        "LBL_SUBSCRIBE": "Đăng ký để nhận các ưu đãi đặc biệt, quà tặng và khuyến mãi độc quyền.",
+        "LBL_TERMS_OF_SERVICE": "Điều khoản dịch vụ",
+        "LBL_PRIVACY_POLICY": "Chính sách bảo mật",
+        "LBL_COPYRIGHT": "Bản quyền © 2024 Hush.Shop - Bảo lưu mọi quyền - Hush Shop là thương hiệu đã đăng ký."
     }
 }

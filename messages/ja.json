@@ -1,0 +1,56 @@
+{
+    "LOCAL_LAYOUT": {
+        "LBL_TITLE": "Hush ショップ"
+    },
+    "PAGE_LOGIN": {
+        "LBL_TITLE": "ログイン",
+        "LBL_SIGN_IN_WITH_AUTH": "SNSでログイン",
+        "LBL_EMAIL": "メールアドレス",
+        "LBL_PASSWORD": "パスワード",
+        "LBL_FORGOT_PASSWORD": "パスワードをお忘れですか？",
+        "LBL_CREATE_ACCOUNT": "アカウント作成",
+        "LBL_SIGN_IN": "ログイン",
+        "LBL_INCORRECT_EMAIL_OR_PASSWORD": "メールアドレスまたはパスワードが間違っています。"
+    },
+    "PAGE_REGISTER": {
+        "LBL_TITLE": "アカウント作成",
+        "LBL_FIRST_NAME": "名",
+        "LBL_LAST_NAME": "姓",
+        "LBL_EMAIL": "メールアドレス",
+        "LBL_EMAIL_CANT_BE_BLANK": "メールアドレスを入力してください。",
+        "LBL_INVALID_EMAIL": "無効なメールアドレスです。",
+        "LBL_EMAIL_ALREADY_EXISTS": "このメールアドレスは既に存在します。",
+        "LBL_PASSWORD": "パスワード",
+        "LBL_PASSWORD_TOO_SHORT": "パスワードは8文字以上で入力してください。",
+        "LBL_PASSWORD_CANT_BE_BLANK": "パスワードを入力してください。",
+        "LBL_SIGN_IN": "ログイン",
+        "LBL_ALREADY_HAVE_ACCOUNT": "既にアカウントをお持ちですか？",
+        "LBL_CREATE": "作成"
+    },
+    "PAGE_FORGOT_PASSWORD": {
+        "LBL_TITLE": "パスワードをリセットする",
+        "LBL_SUBTITLE": "パスワードリセットのメールをお送りします。",
+        "LBL_EMAIL": "メールアドレス",
+        "LBL_EMAIL_CANT_BE_BLANK": "メールアドレスを入力してください。",
+        "LBL_INVALID_EMAIL": "無効なメールアドレスです。",
+        "LBL_EMAIL_NOT_FOUND": "そのメールアドレスのアカウントは見つかりませんでした。",
+        "LBL_SEND_RESET_EMAIL": "リセットメールを送信",
+        "LBL_RESET_EMAIL_SENT": "リセットメールを送信しました。受信ボックスを確認してください。",
+        "LBL_SUBMIT": "送信",
+        "LBL_BACK_TO_LOGIN": "ログイン画面に戻る"
+    },
+    "PAGE_NOT_PAGE": {
+        "LBL_TITLE": "404 ページが見つかりません",
+        "LBL_SUBTITLE": "お探しのページは存在しません。",
+        "LBL_CONTINUE_HOME": "ショッピングを続ける"
+    },
+    "FOOTER": {
+        "LBL_HELP_AND_INFO": "ヘルプ＆情報",
+        "LBL_MAIN_MENU": "メインメニュー",
+        "LBL_SIGN_UP_AND_SAVE": "登録して節約",
+        "LBL_SUBSCRIBE": "特別オファー、無料ギフト、限定セールをお届けします。",
+        "LBL_TERMS_OF_SERVICE": "利用規約",
+        "LBL_PRIVACY_POLICY": "プライバシーポリシー",
+        "LBL_COPYRIGHT": "Copyright © 2024 Hush.Shop - 全著作権所有 - Hush Shopは登録商標です。"
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "LOCAL_LAYOUT": {
+        "LBL_TITLE": "Hush Boutique"
+    },
+    "PAGE_LOGIN": {
+        "LBL_TITLE": "Connexion",
+        "LBL_SIGN_IN_WITH_AUTH": "Se connecter avec un réseau social",
+        "LBL_EMAIL": "E-mail",
+        "LBL_PASSWORD": "Mot de passe",
+        "LBL_FORGOT_PASSWORD": "Mot de passe oublié ?",
+        "LBL_CREATE_ACCOUNT": "Créer un compte",
+        "LBL_SIGN_IN": "Se connecter",
+        "LBL_INCORRECT_EMAIL_OR_PASSWORD": "E-mail ou mot de passe incorrect."
+    },
+    "PAGE_REGISTER": {
+        "LBL_TITLE": "Créer un compte",
+        "LBL_FIRST_NAME": "Prénom",
+        "LBL_LAST_NAME": "Nom",
+        "LBL_EMAIL": "E-mail",
+        "LBL_EMAIL_CANT_BE_BLANK": "L'e-mail ne peut pas être vide.",
+        "LBL_INVALID_EMAIL": "E-mail invalide",
+        "LBL_EMAIL_ALREADY_EXISTS": "L'e-mail existe déjà.",
+        "LBL_PASSWORD": "Mot de passe",
+        "LBL_PASSWORD_TOO_SHORT": "Le mot de passe doit contenir au moins 8 caractères.",
+        "LBL_PASSWORD_CANT_BE_BLANK": "Le mot de passe ne peut pas être vide.",
+        "LBL_SIGN_IN": "Se connecter",
+        "LBL_ALREADY_HAVE_ACCOUNT": "Vous avez déjà un compte ?",
+        "LBL_CREATE": "Créer"
+    },
+    "PAGE_FORGOT_PASSWORD": {
+        "LBL_TITLE": "Réinitialiser votre mot de passe",
+        "LBL_SUBTITLE": "Nous vous enverrons un e-mail pour réinitialiser votre mot de passe.",
+        "LBL_EMAIL": "E-mail",
+        "LBL_EMAIL_CANT_BE_BLANK": "L'e-mail ne peut pas être vide.",
+        "LBL_INVALID_EMAIL": "E-mail invalide.",
+        "LBL_EMAIL_NOT_FOUND": "Aucun compte trouvé avec cet e-mail.",
+        "LBL_SEND_RESET_EMAIL": "Envoyer un e-mail de réinitialisation",
+        "LBL_RESET_EMAIL_SENT": "E-mail de réinitialisation envoyé avec succès. Vérifiez votre boîte de réception.",
+        "LBL_SUBMIT": "Envoyer",
+        "LBL_BACK_TO_LOGIN": "Retour à la connexion"
+    },
+    "PAGE_NOT_PAGE": {
+        "LBL_TITLE": "404 Page non trouvée",
+        "LBL_SUBTITLE": "La page que vous recherchez n'existe pas.",
+        "LBL_CONTINUE_HOME": "Continuer vos achats"
+    },
+    "FOOTER": {
+        "LBL_HELP_AND_INFO": "Aide et informations",
+        "LBL_MAIN_MENU": "Menu principal",
+        "LBL_SIGN_UP_AND_SAVE": "Inscrivez-vous et économisez",
+        "LBL_SUBSCRIBE": "Abonnez-vous pour obtenir des offres spéciales, des cadeaux et des promotions uniques.",
+        "LBL_TERMS_OF_SERVICE": "Conditions d'utilisation",
+        "LBL_PRIVACY_POLICY": "Politique de confidentialité",
+        "LBL_COPYRIGHT": "Copyright © 2024 Hush.Shop - Tous droits réservés - Hush Shop est une marque déposée."
+    }
+}

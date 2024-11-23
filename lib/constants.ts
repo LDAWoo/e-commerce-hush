@@ -1,4 +1,3 @@
-import { Color, Size } from "@prisma/client";
 import { Box, Info, LayoutGrid, LayoutList, LogOut, Settings, UserRound } from "lucide-react";
 import { CN, ES, JP, KR, US, VN } from "country-flag-icons/react/3x2";
 
@@ -164,6 +163,20 @@ export const filterCollections = [
     { value: "rating-low-to-high", label: "Rating: Low to High" },
     { value: "relevance", label: "Relevance" },
 ];
+
+export type Color = {
+    id: string;
+    name: string;
+    hexCode: string;
+    count: number;
+};
+
+export type Size = {
+    id: string;
+    code: string;
+    name: string;
+    count: number;
+};
 
 export const colorOptions: Color[] = [
     { id: "black", name: "Black", hexCode: "#000000", count: 12 },

@@ -94,7 +94,7 @@ const NavigationContent = ({ children, side, align, defaultOpen = false, classNa
 
     useEffect(() => {
         setOpen(defaultOpen);
-    }, [defaultOpen]);
+    }, [defaultOpen, setOpen]);
 
     return (
         <div data-state={open} className={cn(NavigationContentVariants({ align, side }), "shadow-container", className, open ? "animate-slide-down" : "animate-slide-up")} onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>

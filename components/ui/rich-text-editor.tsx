@@ -19,7 +19,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({ onChange, initialConten
         if (editorRef.current) {
             editorRef.current.innerHTML = content;
         }
-    }, []);
+    }, [content]);
 
     const handleChange = () => {
         const newContent = editorRef.current?.innerHTML || "";
