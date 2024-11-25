@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 const buttonVariants = cva("relative overflow-hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50", {
     variants: {
         variant: {
-            default: "bg-primary text-primary-foreground hover:bg-primary/90 after:absolute after:top-0 after:left-[150%] after:w-[200%] after:h-full after:-skew-x-[20deg] after:hover:animate-shine after:bg-shine-gradient after:from-transparent after:via-white/25 after:to-transparent",
+            default: "bg-primary text-primary-foreground hover:bg-primary-hover after:absolute after:top-0 after:left-[150%] after:w-[200%] after:h-full after:-skew-x-[20deg] after:hover:animate-shine after:bg-shine-gradient after:from-transparent after:via-white/25 after:to-transparent",
             destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
             outline: "border border-input bg-background hover:bg-transparent",
-            secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+            secondary: "bg-secondary text-secondary-foreground hover:bg-secondary-hover",
             ghost: "hover:bg-accent hover:text-accent-foreground",
             link: "text-primary underline-offset-4 hover:underline",
         },

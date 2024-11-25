@@ -58,7 +58,7 @@ const Navigation = () => {
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
                             <div key={component.title} className="w-full">
-                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[16px] text-foreground">
+                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[calc(var(--type-base-size)-2px)] hover:text-foreground text-card-foreground">
                                     {component.title}
                                 </Link>
                             </div>
@@ -76,7 +76,7 @@ const Navigation = () => {
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
                             <div key={component.title} className="w-full">
-                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[16px] text-foreground">
+                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[calc(var(--type-base-size)-2px)] hover:text-foreground text-card-foreground">
                                     {component.title}
                                 </Link>
                             </div>
@@ -94,7 +94,7 @@ const Navigation = () => {
                     <NavigationContent className="w-full">
                         <div className="flex flex-wrap w-full p-[39px_50px]">
                             {components.map((component) => (
-                                <div key={component.title} className="flex pl-[22px] w-[25%] p-[8px_15px] text-[17px] uppercase">
+                                <div key={component.title} className="flex pl-[22px] w-[25%] p-[8px_15px] text-[calc(var(--type-base-size)-2px)] hover:text-foreground text-card-foreground uppercase">
                                     <Link href={`/collections${component.href}`}>{component.title}</Link>
                                 </div>
                             ))}
@@ -112,7 +112,7 @@ const Navigation = () => {
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
                             <div key={component.title} className="w-full">
-                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[16px] text-foreground">
+                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[calc(var(--type-base-size)-2px)] hover:text-foreground text-card-foreground">
                                     {component.title}
                                 </Link>
                             </div>
@@ -130,7 +130,7 @@ const Navigation = () => {
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
                             <div key={component.title} className="w-full">
-                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[16px] text-foreground">
+                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[calc(var(--type-base-size)-2px)] hover:text-foreground text-card-foreground">
                                     {component.title}
                                 </Link>
                             </div>
@@ -148,7 +148,7 @@ const Navigation = () => {
                     <NavigationContent className="w-[162px]">
                         {components.map((component) => (
                             <div key={component.title} className="w-full">
-                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[16px] text-foreground">
+                                <Link href={`/collections${component.href}`} className="block p-[8px_15px] text-[calc(var(--type-base-size)-2px)] hover:text-foreground text-card-foreground">
                                     {component.title}
                                 </Link>
                             </div>

@@ -1,28 +1,37 @@
 "use client";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList } from "@/components/ui/breadcrumb";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Toggle } from "@/components/ui/toggle";
 import { filterCollections, products } from "@/lib/constants";
-import { LayoutGrid, ListFilter } from "lucide-react";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
+
 import CollectionSkeleton from "./_components/collection-skeleton";
+import { cn } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
+import CollectionNavigation from "./_components/collectioin-navigation";
 const CollectionItem = dynamic(() => import("./_components/collection-item"), { ssr: false });
 const CollectionsFilter = dynamic(() => import("./_components/collection-filter"), { ssr: false });
-
 type Props = {
     params: {
         collectionId: string;
     };
 };
 
+type LayoutType = "grid-view" | "grid-compact" | "list";
+
 const Page = ({ params }: Props) => {
     const collectionsTotal = 56;
     const [isLoading, setIsLoading] = useState(false);
+    const [layout, setLayout] = React.useState<LayoutType>("grid-view");
+    const [filter, setFilter] = React.useState("filter");
+
+    const handleLayoutChange = (l: string) => {
+        setLayout(l as LayoutType);
+    };
 
     return (
         <div className="flex flex-col items-center h-full p-0">
-            <div className="flex flex-col items-center w-full pt-[40px] md:pt-[75px]">
+            <div className="flex flex-col items-center w-full">
                 <Breadcrumb className="mb-[10px]">
                     <BreadcrumbList>
                         <BreadcrumbItem>
@@ -41,47 +50,30 @@ const Page = ({ params }: Props) => {
 
             {!isLoading && (
                 <div className="w-full h-full flex flex-col mt-[45px]">
-                    <div className="flex items-center justify-between w-full pt-3 mb-[35px]">
+                    <div className="flex flex-col items-center w-full pt-3 mb-3 gap-4">
+                        <CollectionNavigation filter={filter} onFilter={(f) => setFilter(f)} layout={layout} onLayoutChange={handleLayoutChange} />
+
                         <div className="flex-1">
-                            <span className="inline-flex items-center tracking-[.1rem] text-xs h-[34px] text-muted-foreground whitespace-pre-wrap">
+                            <span className="inline-flex items-center tracking-[.1rem] text-[calc(var(--type-base-size)-4px)] h-[34px] text-muted-foreground whitespace-pre-wrap">
                                 Showing {collectionsTotal} results for
                                 <p className="tracking-[.2rem]"> {`"${params.collectionId}"`}</p>
                             </span>
                         </div>
-
-                        <div className="flex flex-row gap-6">
-                            <div className="flex flex-row gap-2">
-                                <Toggle aria-label="layout grid" variant={"outline"} className="rounded-none w-8 h-8 p-0 hover:bg-transparent">
-                                    <LayoutGrid size={20} />
-                                </Toggle>
-                                <Toggle aria-label="layout grid" variant={"outline"} className="rounded-none w-8 h-8 p-0 hover:bg-transparent">
-                                    <ListFilter size={20} />
-                                </Toggle>
-                            </div>
-
-                            <Select>
-                                <SelectTrigger className="h-8 w-[166px] rounded-none">
-                                    <SelectValue placeholder="Date: New to Old" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectGroup>
-                                        {filterCollections.map((option) => (
-                                            <SelectItem key={option.value} value={option.value}>
-                                                {option.label}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectGroup>
-                                </SelectContent>
-                            </Select>
-                        </div>
                     </div>
 
                     <div className="flex flex-row w-full">
-                        <CollectionsFilter />
-                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 w-full ml-0 md:ml-10">
-                            {products.map((product) => (
-                                <CollectionItem key={product.id} collectionId={params.collectionId} item={product} />
-                            ))}
+                        {filter && <CollectionsFilter />}
+                        <div className="w-full h-full">
+                            <div
+                                className={cn("grid gap-4", {
+                                    "grid-cols-2 lg:grid-cols-3 xl:grid-cols-4": layout === "grid-view",
+                                    "grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5": layout === "grid-compact",
+                                })}
+                            >
+                                {products.map((product) => (
+                                    <CollectionItem key={product.id} collectionId={params.collectionId} item={product} layout={layout} />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

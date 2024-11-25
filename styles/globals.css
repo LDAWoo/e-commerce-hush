@@ -4,29 +4,43 @@
 
 @layer base {
     :root {
-        --type-base-size: 18px;
+        --type-base-size: 16px;
         --page-max-width: 1500px;
         --font-twentieth: "Twentieth Century";
         --gw-wishlist-heart-background: #f44336;
         --gw-wishlist-heart-foreground: #ef466f;
         --gw-loading-stroke-color: #ccc;
         --skeleton-background: 0, 0%, 93.33%;
+
         --background: 0 0% 100%;
         --foreground: 240 10% 3.9%;
+
         --card: 0 0% 100%;
         --card-foreground: 240 10% 3.9%;
+
         --popover: 0 0% 100%;
         --popover-foreground: 240 10% 3.9%;
-        --primary: 240 5.9% 10%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 240 4.8% 95.9%;
-        --secondary-foreground: 240 5.9% 10%;
+
+        --primary: 335, 78%, 52%;
+        --primary-hover: 335, 78%, 52%;
+        --primary-foreground: 300, 7%, 97%;
+
+        --secondary: 0, 0%, 95%;
+        --secondary-hover: 0, 0%, 93%;
+        --secondary-foreground: 0 0% 9%;
+
         --muted: 240 4.8% 95.9%;
         --muted-foreground: 240 3.8% 46.1%;
-        --accent: 240 4.8% 95.9%;
+
+        --accent: 0, 0%, 90%;
         --accent-foreground: 240 5.9% 10%;
+
         --destructive: 0 100% 98%;
         --destructive-foreground: 0 64% 50%;
+
+        --tooltip: 240 10% 3.9%;
+        --tooltip-foreground: 0 0% 100%;
+
         --border: 240 5.9% 90%;
         --input: 240 5.9% 90%;
         --ring: 240 5% 64.9%;
@@ -45,34 +59,39 @@
     }
 
     .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
+        --background: 276, 33%, 3%;
+        --foreground: 300, 7%, 97%;
 
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
+        --card: 270, 33%, 7%;
+        --card-foreground: 257, 9%, 54%;
 
         --popover: 0 0% 3.9%;
         --popover-foreground: 0 0% 98%;
 
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
+        --primary: 335, 78%, 52%;
+        --primary-hover: 335, 78%, 52%;
+        --primary-foreground: 300, 7%, 97%;
 
-        --secondary: 0 0% 14.9%;
+        --secondary: 270, 24%, 20%;
+        --secondary-hover: 256, 15%, 24%;
         --secondary-foreground: 0 0% 98%;
 
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
+        --muted: 269, 26%, 17%;
+        --muted-foreground: 257, 9%, 54%;
 
-        --accent: 0 0% 14.9%;
+        --accent: 269, 26%, 17%;
         --accent-foreground: 0 0% 98%;
 
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
+        --destructive: 318, 37%, 26%;
+        --destructive-foreground: 335, 100%, 44%;
 
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 85.7% 97.3%;
+        --destructive: 0 100% 98%;
+        --destructive-foreground: 0 64% 50%;
 
-        --border: 0 0% 14.9%;
+        --tooltip: 250, 24%, 20%;
+        --tooltip-foreground: 0, 0%, 100%;
+
+        --border: 269, 26%, 17%;
         --input: 0 0% 14.9%;
         --ring: 0 0% 83.1%;
 
@@ -85,6 +104,8 @@
         --nav-item-shadow: rgba(152, 150, 150, 0.15);
         --nav-item-current: rgba(144, 144, 144, 0.08);
         --nav-container-shadow: rgba(141, 141, 141, 0.02);
+
+        --skeleton-background: 270, 24%, 20%;
     }
 }
 
@@ -129,10 +150,37 @@
     }
 }
 
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
 .no-scrollbar {
-    scrollbar-width: none;
     -ms-overflow-style: none;
-    overflow: scroll;
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: gray;
+    -webkit-border-radius: 1ex;
+}
+
+.dark *::-webkit-scrollbar-thumb {
+    background: #2a2a36;
+    -webkit-border-radius: 1ex;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-corner {
+    background: transparent;
 }
 
 iframe {

@@ -10,10 +10,10 @@ const Footer = dynamic(() => import("@/components/footer"), { ssr: false });
 const Layout = ({ children }: ChildrenProps) => {
     return (
         <div className="flex flex-col min-h-screen bg-background">
-            <Header className="bg-background !text-accent-foreground">
+            <Header className="bg-card !text-accent-foreground">
                 <Navigation />
             </Header>
-            <div className="ml-auto mr-auto p-[40px_17px] md:p-[75px_40px] w-full max-w-[var(--page-max-width)]">{children}</div>
+            <div className="relative ml-auto mr-auto p-[40px_17px] md:p-[75px_40px] w-full max-w-[var(--page-max-width)]">{children}</div>
             <WishList />
             <Footer />
         </div>

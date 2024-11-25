@@ -46,7 +46,7 @@ const NavigationTrigger = ({ children, className, durations = 0.5, ...props }: N
 
     return (
         <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} data-state={open} className={cn("data-[state=false]:bg-transparent data-[state=true]:bg-transparent transition-none rounded-none p-[7.5px_15px]", className)} {...props}>
-            <div className="relative tracking-[.2rem] text-[16px] uppercase">
+            <div className="relative tracking-[.2rem] text-[calc(var(--type-base-size)-1px)] uppercase">
                 {children}
                 <div
                     className="absolute h-[2px] w-full -bottom-1 left-0 bg-foreground"
@@ -68,7 +68,7 @@ type NavigationContentProps = {
     align?: "left" | "right" | "top" | "bottom";
 };
 
-const NavigationContentVariants = cva("absolute data-[state=true]:block data-[state=false]:hidden data-[state=true]:opacity-1 data-[state=false]:opacity-0 bg-background z-[10] shadow-[0_10px_20px_#00000017] min-w-full pt-[10px] pb-[5px]", {
+const NavigationContentVariants = cva("absolute data-[state=true]:block data-[state=false]:hidden data-[state=true]:opacity-1 data-[state=false]:opacity-0 bg-card z-[10] shadow-[0_10px_20px_#00000017] min-w-full pt-[10px] pb-[5px]", {
     variants: {
         side: {
             left: "left-0",

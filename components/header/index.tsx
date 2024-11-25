@@ -55,12 +55,12 @@ const Header = ({ children, className }: HeaderProps) => {
                 <header
                     ref={containerHeaderRef}
                     className={cn(
-                        "p-[7px_0] md:p-[20px_0] relative text-foreground",
+                        "p-[7px_0] md:p-[20px_0] relative text-foreground border-b",
                         {
-                            "text-white": isHomePage,
+                            "text-white border-b-0": isHomePage,
                         },
                         {
-                            "!fixed top-0 left-0 right-0 bg-background text-foreground animate-transform-up z-[10000] border-b": isScrolled,
+                            "!fixed top-0 left-0 right-0 bg-card text-foreground animate-transform-up z-[10000] border-b": isScrolled,
                         },
                         className
                     )}

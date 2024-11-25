@@ -32,6 +32,9 @@ const config = {
                     DEFAULT: "hsl(var(--secondary))",
                     foreground: "hsl(var(--secondary-foreground))",
                 },
+                "secondary-hover": {
+                    DEFAULT: "hsl(var(--secondary-hover))",
+                },
                 destructive: {
                     DEFAULT: "hsl(var(--destructive))",
                     foreground: "hsl(var(--destructive-foreground))",
@@ -51,6 +54,10 @@ const config = {
                 card: {
                     DEFAULT: "hsl(var(--card))",
                     foreground: "hsl(var(--card-foreground))",
+                },
+                tooltip: {
+                    DEFAULT: "hsl(var(--tooltip))",
+                    foreground: "hsl(var(--tooltip-foreground))",
                 },
             },
             borderRadius: {

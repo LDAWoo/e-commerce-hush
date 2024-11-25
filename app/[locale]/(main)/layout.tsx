@@ -1,4 +1,5 @@
 "use client";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { store } from "@/lib/shared/store";
 import { ChildrenProps } from "@/lib/types";
 import { ModalProvider } from "@/provider/modal-provider";
@@ -10,7 +11,9 @@ const Layout = ({ children }: ChildrenProps) => {
     return (
         <SessionProvider>
             <Provider store={store}>
-                <ModalProvider>{children}</ModalProvider>
+                <TooltipProvider>
+                    <ModalProvider>{children}</ModalProvider>
+                </TooltipProvider>
             </Provider>
         </SessionProvider>
     );
